@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-22T11:55:05+08:00",
+  "generated_at": "2026-11-22T12:11:05+08:00",
   "count": 68,
-  "total_bytes": 1745897,
-  "total_mb": 1.67,
+  "total_bytes": 1790437,
+  "total_mb": 1.71,
   "source": [
     "https://api.fda.gov/drug/label.json",
     "https://pubchem.ncbi.nlm.nih.gov/rest/pug"
@@ -16,8 +16,13 @@
       "class": "MT1/MT2 激动 + 5-HT2C 拮抗",
       "half_life": "1–2 h",
       "file": "openfda-drugs/agomelatine.md",
-      "bytes": 1633,
-      "status": "pubchem-only"
+      "bytes": 2288,
+      "status": "pubchem-only",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "alprazolam",
@@ -26,8 +31,13 @@
       "class": "BZD（三唑类）",
       "half_life": "6–12 h",
       "file": "openfda-drugs/alprazolam.md",
-      "bytes": 30413,
-      "status": "ok"
+      "bytes": 31068,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "amisulpride",
@@ -36,8 +46,13 @@
       "class": "非典型抗精神病药（纯 D2/D3）",
       "half_life": "12 h",
       "file": "openfda-drugs/amisulpride.md",
-      "bytes": 18721,
-      "status": "ok"
+      "bytes": 19376,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "amitriptyline",
@@ -46,8 +61,13 @@
       "class": "TCA",
       "half_life": "10–28 h",
       "file": "openfda-drugs/amitriptyline.md",
-      "bytes": 17951,
-      "status": "ok"
+      "bytes": 18606,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "amphetamine",
@@ -56,8 +76,13 @@
       "class": "中枢兴奋剂",
       "half_life": "10–13 h",
       "file": "openfda-drugs/amphetamine.md",
-      "bytes": 33241,
-      "status": "ok"
+      "bytes": 33896,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "aripiprazole",
@@ -66,8 +91,13 @@
       "class": "非典型抗精神病药（部分激动）",
       "half_life": "75 h（脱氢 94 h）",
       "file": "openfda-drugs/aripiprazole.md",
-      "bytes": 29129,
-      "status": "ok"
+      "bytes": 29784,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "atomoxetine",
@@ -76,8 +106,13 @@
       "class": "选择性 NE 再摄取抑制剂",
       "half_life": "5 h（活性代谢物 24 h）",
       "file": "openfda-drugs/atomoxetine.md",
-      "bytes": 33498,
-      "status": "ok"
+      "bytes": 34153,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "brexpiprazole",
@@ -86,8 +121,13 @@
       "class": "非典型抗精神病药",
       "half_life": "91 h",
       "file": "openfda-drugs/brexpiprazole.md",
-      "bytes": 30650,
-      "status": "ok"
+      "bytes": 31305,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "bupropion",
@@ -96,8 +136,13 @@
       "class": "NDRI（无 5-HT 效应）",
       "half_life": "21 h（羟安非他酮 20 h）",
       "file": "openfda-drugs/bupropion.md",
-      "bytes": 32336,
-      "status": "ok"
+      "bytes": 32991,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "buspirone",
@@ -106,8 +151,13 @@
       "class": "氮杂螺环酮类抗焦虑",
       "half_life": "2–3 h",
       "file": "openfda-drugs/buspirone.md",
-      "bytes": 22539,
-      "status": "ok"
+      "bytes": 23194,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "caffeine",
@@ -116,8 +166,13 @@
       "class": "黄嘌呤类中枢兴奋剂",
       "half_life": "3–7 h（个体差异大）",
       "file": "openfda-drugs/caffeine.md",
-      "bytes": 3028,
-      "status": "ok"
+      "bytes": 3683,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "carbamazepine",
@@ -126,8 +181,13 @@
       "class": "心境稳定剂/抗惊厥",
       "half_life": "12–17 h（自身诱导后 8–12 h）",
       "file": "openfda-drugs/carbamazepine.md",
-      "bytes": 28311,
-      "status": "ok"
+      "bytes": 28966,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "cariprazine",
@@ -136,8 +196,13 @@
       "class": "非典型抗精神病药（D3 偏好部分激动）",
       "half_life": "2–4 d（代谢物数周）",
       "file": "openfda-drugs/cariprazine.md",
-      "bytes": 27416,
-      "status": "ok"
+      "bytes": 28071,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "citalopram",
@@ -146,8 +211,13 @@
       "class": "SSRI（外消旋）",
       "half_life": "35 h",
       "file": "openfda-drugs/citalopram.md",
-      "bytes": 28074,
-      "status": "ok"
+      "bytes": 28729,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "clomipramine",
@@ -156,8 +226,13 @@
       "class": "TCA（5-HT 最强）",
       "half_life": "20–32 h",
       "file": "openfda-drugs/clomipramine.md",
-      "bytes": 22303,
-      "status": "ok"
+      "bytes": 22958,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "clonazepam",
@@ -166,8 +241,13 @@
       "class": "BZD",
       "half_life": "20–40 h",
       "file": "openfda-drugs/clonazepam.md",
-      "bytes": 22960,
-      "status": "ok"
+      "bytes": 23615,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "clozapine",
@@ -176,8 +256,13 @@
       "class": "非典型抗精神病药（多受体弱结合）",
       "half_life": "12 h",
       "file": "openfda-drugs/clozapine.md",
-      "bytes": 32189,
-      "status": "ok"
+      "bytes": 32844,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "daridorexant",
@@ -186,8 +271,13 @@
       "class": "DORA",
       "half_life": "≈8 h",
       "file": "openfda-drugs/daridorexant.md",
-      "bytes": 25380,
-      "status": "ok"
+      "bytes": 26035,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "desvenlafaxine",
@@ -196,8 +286,13 @@
       "class": "SNRI（活性代谢物直接给药）",
       "half_life": "11 h",
       "file": "openfda-drugs/desvenlafaxine.md",
-      "bytes": 31609,
-      "status": "ok"
+      "bytes": 32264,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "dextromethorphan",
@@ -206,8 +301,13 @@
       "class": "OTC 止咳药",
       "half_life": "2–4 h",
       "file": "openfda-drugs/dextromethorphan.md",
-      "bytes": 4758,
-      "status": "ok"
+      "bytes": 5413,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "diazepam",
@@ -216,8 +316,13 @@
       "class": "BZD",
       "half_life": "20–100 h（活性代谢物）",
       "file": "openfda-drugs/diazepam.md",
-      "bytes": 15998,
-      "status": "ok"
+      "bytes": 16653,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "diphenhydramine",
@@ -226,8 +331,13 @@
       "class": "第一代抗组胺药",
       "half_life": "4–8 h",
       "file": "openfda-drugs/diphenhydramine.md",
-      "bytes": 6865,
-      "status": "ok"
+      "bytes": 7520,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "divalproex-sodium",
@@ -236,8 +346,13 @@
       "class": "心境稳定剂",
       "half_life": "9–16 h",
       "file": "openfda-drugs/divalproex-sodium.md",
-      "bytes": 33540,
-      "status": "ok"
+      "bytes": 34195,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "doxepin",
@@ -246,8 +361,13 @@
       "class": "TCA（低剂量纯 H1）",
       "half_life": "15–30 h",
       "file": "openfda-drugs/doxepin.md",
-      "bytes": 30246,
-      "status": "ok"
+      "bytes": 30901,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "duloxetine",
@@ -256,8 +376,13 @@
       "class": "SNRI（均衡，纯 S 体）",
       "half_life": "12 h",
       "file": "openfda-drugs/duloxetine.md",
-      "bytes": 31421,
-      "status": "ok"
+      "bytes": 32076,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "escitalopram",
@@ -266,8 +391,13 @@
       "class": "SSRI（纯 S-对映体）",
       "half_life": "27–32 h",
       "file": "openfda-drugs/escitalopram.md",
-      "bytes": 30586,
-      "status": "ok"
+      "bytes": 31241,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "esketamine",
@@ -276,8 +406,13 @@
       "class": "NMDA 受体拮抗剂（鼻喷）",
       "half_life": "7–12 h",
       "file": "openfda-drugs/esketamine.md",
-      "bytes": 27768,
-      "status": "ok"
+      "bytes": 28423,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "eszopiclone",
@@ -286,8 +421,13 @@
       "class": "Z-drug",
       "half_life": "6 h",
       "file": "openfda-drugs/eszopiclone.md",
-      "bytes": 27364,
-      "status": "ok"
+      "bytes": 28019,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "fluoxetine",
@@ -296,8 +436,13 @@
       "class": "SSRI（长效）",
       "half_life": "母药 1–4 d；去甲氟西汀 7–15 d",
       "file": "openfda-drugs/fluoxetine.md",
-      "bytes": 32794,
-      "status": "ok"
+      "bytes": 33449,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "fluvoxamine",
@@ -306,8 +451,13 @@
       "class": "SSRI（强 σ1 激动）",
       "half_life": "15 h",
       "file": "openfda-drugs/fluvoxamine.md",
-      "bytes": 33708,
-      "status": "ok"
+      "bytes": 34363,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "gabapentin",
@@ -316,8 +466,13 @@
       "class": "α2δ-1 调节剂",
       "half_life": "5–7 h",
       "file": "openfda-drugs/gabapentin.md",
-      "bytes": 27481,
-      "status": "ok"
+      "bytes": 28136,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "haloperidol",
@@ -326,8 +481,13 @@
       "class": "高效价第一代抗精神病药",
       "half_life": "18 h",
       "file": "openfda-drugs/haloperidol.md",
-      "bytes": 15106,
-      "status": "ok"
+      "bytes": 15761,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "hydroxyzine",
@@ -336,8 +496,13 @@
       "class": "H1 拮抗",
       "half_life": "≈20 h",
       "file": "openfda-drugs/hydroxyzine.md",
-      "bytes": 9132,
-      "status": "ok"
+      "bytes": 9787,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "ibuprofen",
@@ -346,8 +511,13 @@
       "class": "NSAID",
       "half_life": "2 h",
       "file": "openfda-drugs/ibuprofen.md",
-      "bytes": 17238,
-      "status": "ok"
+      "bytes": 17893,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "imipramine",
@@ -356,8 +526,13 @@
       "class": "TCA",
       "half_life": "6–20 h",
       "file": "openfda-drugs/imipramine.md",
-      "bytes": 16224,
-      "status": "ok"
+      "bytes": 16879,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "lamotrigine",
@@ -366,8 +541,13 @@
       "class": "心境稳定剂（谷氨酸调节）",
       "half_life": "25–33 h（合用丙戊酸 ≈70 h）",
       "file": "openfda-drugs/lamotrigine.md",
-      "bytes": 32990,
-      "status": "ok"
+      "bytes": 33645,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "lemborexant",
@@ -376,8 +556,13 @@
       "class": "DORA",
       "half_life": "17–19 h",
       "file": "openfda-drugs/lemborexant.md",
-      "bytes": 25831,
-      "status": "ok"
+      "bytes": 26486,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "lisdexamfetamine",
@@ -386,8 +571,13 @@
       "class": "中枢兴奋剂（前药）",
       "half_life": "10–12 h",
       "file": "openfda-drugs/lisdexamfetamine.md",
-      "bytes": 32734,
-      "status": "ok"
+      "bytes": 33389,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "lithium-carbonate",
@@ -396,8 +586,13 @@
       "class": "心境稳定剂",
       "half_life": "18–24 h",
       "file": "openfda-drugs/lithium-carbonate.md",
-      "bytes": 26883,
-      "status": "ok"
+      "bytes": 27538,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "lorazepam",
@@ -406,8 +601,13 @@
       "class": "苯二氮䓬（BZD）",
       "half_life": "10–20 h",
       "file": "openfda-drugs/lorazepam.md",
-      "bytes": 12905,
-      "status": "ok"
+      "bytes": 13560,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "lurasidone",
@@ -416,8 +616,13 @@
       "class": "非典型抗精神病药",
       "half_life": "18 h",
       "file": "openfda-drugs/lurasidone.md",
-      "bytes": 30813,
-      "status": "ok"
+      "bytes": 31468,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "methylphenidate",
@@ -426,8 +631,13 @@
       "class": "中枢兴奋剂",
       "half_life": "2–4 h（缓释 8–12 h）",
       "file": "openfda-drugs/methylphenidate.md",
-      "bytes": 31814,
-      "status": "ok"
+      "bytes": 32469,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "milnacipran",
@@ -436,8 +646,13 @@
       "class": "SNRI（NE 强于 5-HT）",
       "half_life": "8 h",
       "file": "openfda-drugs/milnacipran.md",
-      "bytes": 31046,
-      "status": "ok"
+      "bytes": 31701,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "mirtazapine",
@@ -446,8 +661,13 @@
       "class": "NaSSA（α2 拮抗）",
       "half_life": "20–40 h",
       "file": "openfda-drugs/mirtazapine.md",
-      "bytes": 28796,
-      "status": "ok"
+      "bytes": 29451,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "modafinil",
@@ -456,8 +676,13 @@
       "class": "促觉醒药",
       "half_life": "12–15 h",
       "file": "openfda-drugs/modafinil.md",
-      "bytes": 27476,
-      "status": "ok"
+      "bytes": 28131,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "naproxen",
@@ -466,8 +691,13 @@
       "class": "NSAID",
       "half_life": "12–17 h",
       "file": "openfda-drugs/naproxen.md",
-      "bytes": 32567,
-      "status": "ok"
+      "bytes": 33222,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "nortriptyline",
@@ -476,8 +706,13 @@
       "class": "TCA（NE 为主）",
       "half_life": "18–44 h",
       "file": "openfda-drugs/nortriptyline.md",
-      "bytes": 16284,
-      "status": "ok"
+      "bytes": 16939,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "olanzapine",
@@ -486,8 +721,13 @@
       "class": "非典型抗精神病药",
       "half_life": "33 h",
       "file": "openfda-drugs/olanzapine.md",
-      "bytes": 33096,
-      "status": "ok"
+      "bytes": 33751,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "omeprazole",
@@ -496,8 +736,13 @@
       "class": "质子泵抑制剂",
       "half_life": "0.5–1 h（抑酸效应 24 h+）",
       "file": "openfda-drugs/omeprazole.md",
-      "bytes": 31872,
-      "status": "ok"
+      "bytes": 32527,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "oxcarbazepine",
@@ -506,8 +751,13 @@
       "class": "抗惊厥/心境稳定",
       "half_life": "母药 2 h；MHD 9 h",
       "file": "openfda-drugs/oxcarbazepine.md",
-      "bytes": 26053,
-      "status": "ok"
+      "bytes": 26708,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "paliperidone",
@@ -516,8 +766,13 @@
       "class": "非典型抗精神病药",
       "half_life": "23 h",
       "file": "openfda-drugs/paliperidone.md",
-      "bytes": 31856,
-      "status": "ok"
+      "bytes": 32511,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "paroxetine",
@@ -526,8 +781,13 @@
       "class": "SSRI（强镇静/抗胆碱）",
       "half_life": "21 h（非线性）",
       "file": "openfda-drugs/paroxetine.md",
-      "bytes": 29073,
-      "status": "ok"
+      "bytes": 29728,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "phenelzine",
@@ -536,8 +796,13 @@
       "class": "不可逆 MAOI",
       "half_life": "≈11 h（效应远超半衰期）",
       "file": "openfda-drugs/phenelzine.md",
-      "bytes": 13617,
-      "status": "ok"
+      "bytes": 14272,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "pregabalin",
@@ -546,8 +811,13 @@
       "class": "电压门控钙通道调节剂（α2δ-1）",
       "half_life": "6.3 h",
       "file": "openfda-drugs/pregabalin.md",
-      "bytes": 26422,
-      "status": "ok"
+      "bytes": 27077,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "quetiapine",
@@ -556,8 +826,13 @@
       "class": "非典型抗精神病药",
       "half_life": "6–7 h（去甲 12 h）",
       "file": "openfda-drugs/quetiapine.md",
-      "bytes": 32772,
-      "status": "ok"
+      "bytes": 33427,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "risperidone",
@@ -566,8 +841,13 @@
       "class": "非典型抗精神病药",
       "half_life": "3 h（9-羟利培酮 24 h）",
       "file": "openfda-drugs/risperidone.md",
-      "bytes": 32306,
-      "status": "ok"
+      "bytes": 32961,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "selegiline",
@@ -576,8 +856,13 @@
       "class": "MAO-B 抑制剂（低剂量选择性）",
       "half_life": "≈1.5 h（代谢物 4–8 h）",
       "file": "openfda-drugs/selegiline.md",
-      "bytes": 15321,
-      "status": "ok"
+      "bytes": 15976,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "sertraline",
@@ -586,8 +871,13 @@
       "class": "SSRI + 弱 DAT + σ1",
       "half_life": "26 h（去甲舍曲林 62–104 h）",
       "file": "openfda-drugs/sertraline.md",
-      "bytes": 24249,
-      "status": "ok"
+      "bytes": 24904,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "suvorexant",
@@ -596,8 +886,13 @@
       "class": "双重食欲素受体拮抗剂（DORA）",
       "half_life": "≈12 h",
       "file": "openfda-drugs/suvorexant.md",
-      "bytes": 25399,
-      "status": "ok"
+      "bytes": 26054,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "tramadol",
@@ -606,8 +901,13 @@
       "class": "弱阿片 + 5-HT/NE 再摄取抑制",
       "half_life": "6 h",
       "file": "openfda-drugs/tramadol.md",
-      "bytes": 32710,
-      "status": "ok"
+      "bytes": 33365,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "tranylcypromine",
@@ -616,8 +916,13 @@
       "class": "不可逆 MAOI",
       "half_life": "≈2.5 h",
       "file": "openfda-drugs/tranylcypromine.md",
-      "bytes": 27679,
-      "status": "ok"
+      "bytes": 28334,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "trazodone",
@@ -626,8 +931,13 @@
       "class": "SARI",
       "half_life": "5–9 h",
       "file": "openfda-drugs/trazodone.md",
-      "bytes": 26967,
-      "status": "ok"
+      "bytes": 27622,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "venlafaxine",
@@ -636,8 +946,13 @@
       "class": "SNRI（剂量依赖双通道）",
       "half_life": "母药 5 h；去甲文拉法辛 11 h",
       "file": "openfda-drugs/venlafaxine.md",
-      "bytes": 34026,
-      "status": "ok"
+      "bytes": 34681,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "vilazodone",
@@ -646,8 +961,13 @@
       "class": "SSRI + 5-HT1A 部分激动",
       "half_life": "25 h",
       "file": "openfda-drugs/vilazodone.md",
-      "bytes": 28101,
-      "status": "ok"
+      "bytes": 28756,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "vortioxetine",
@@ -656,8 +976,13 @@
       "class": "多模式 5-HT 调节剂",
       "half_life": "66 h",
       "file": "openfda-drugs/vortioxetine.md",
-      "bytes": 29858,
-      "status": "ok"
+      "bytes": 30513,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "zaleplon",
@@ -666,8 +991,13 @@
       "class": "Z-drug（超短效）",
       "half_life": "1 h",
       "file": "openfda-drugs/zaleplon.md",
-      "bytes": 18859,
-      "status": "ok"
+      "bytes": 19514,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "ziprasidone",
@@ -676,8 +1006,13 @@
       "class": "非典型抗精神病药",
       "half_life": "7 h",
       "file": "openfda-drugs/ziprasidone.md",
-      "bytes": 32677,
-      "status": "ok"
+      "bytes": 33332,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     },
     {
       "slug": "zolpidem",
@@ -686,8 +1021,13 @@
       "class": "Z-drug（α1 偏好）",
       "half_life": "2–3 h",
       "file": "openfda-drugs/zolpidem.md",
-      "bytes": 31235,
-      "status": "ok"
+      "bytes": 31890,
+      "status": "ok",
+      "sources": [
+        "openfda:label",
+        "pubchem:property",
+        "literature:ki-approx"
+      ]
     }
   ]
 }

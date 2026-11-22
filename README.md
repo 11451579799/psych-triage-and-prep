@@ -1,95 +1,96 @@
-# psych-triage-and-prep（v2.0）
+# psych-triage-and-prep（v2.1）
 
-> 精神与心理健康「有限责任」问诊辅助技能：**8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件交互式可视化报告**。
-> 跨 Agent 框架可用（Harness-agnostic）：Claude Code / Codex / Cursor / DeepSeek Harness 等只要支持读取仓库内 Markdown 技能的宿主均可加载。
+> 精神与心理健康「有限责任」问诊辅助技能：**8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件交互式报告**。
+> 跨 Agent 框架可用（Harness-agnostic）：Claude Code / Codex / Cursor / DeepSeek Harness 等能读取仓库内 Markdown 技能的宿主均可加载。
 
 ## 这个仓库解决什么问题
 
-精神科门诊的现实困境是双向的：
+精神科门诊的困境是双向的：
 
-- **患者侧**：抑郁、焦虑、疼痛或脑雾状态下，人写不出一份结构完整的病史；说不清“哪里不对”，只能反复说“就是很难受”。
-- **医生侧**：一次门诊 8–15 分钟，要在零散叙述里抓到用药史、剂型、半衰期、交互风险与器质性缺口。
+- **患者侧**：抑郁、焦虑、疼痛或脑雾状态下，人写不出一份结构完整的病史，只能反复说「就是很难受」。
+- **医生侧**：一次门诊 8–15 分钟，要在零散叙述里抓用药史、剂型、半衰期、交互风险与器质性缺口。
 
-本技能把这段沟通变成可复用的结构化流程：逐轮收集 → 即时校验 → 最后一轮直接产出一份患者能看懂、医生 30 秒能抓重点、可打印可导出的单文件 HTML 报告。
+本技能把这段沟通变成可复用的流程：逐轮收集 → 即时校验 → 最后一轮产出患者能看懂、医生 30 秒能抓重点、可打印可导出的单文件 HTML 报告。
 
 ## 边界（不可协商）
 
 - **不下诊断**，不替代执业精神科医师，不给自行增减剂量或骤然停药的操作指令。
-- **不收录、不生成**任何超剂量使用（OD）、娱乐性滥用、剂量追高或规避处方监管的内容；出现相关倾向时切换为无评判的毒性红线筛查与尽快就医引导。
-- 命中急性危机或中毒综合征（自杀计划/自伤、5-羟色胺综合征、NMS、SJS/TEN、锂中毒等）时**立即中止问诊**，置顶急诊指引与当地危机热线。
+- **不收录、不生成**任何超剂量使用（OD）、娱乐性滥用、剂量追高或规避处方监管的内容。
+- 命中急性危机或中毒综合征（自杀计划/自伤、5-羟色胺综合征、NMS、SJS/TEN、锂中毒等）时**立即中止问诊**，置顶急诊指引与当地热线。
 
-## 八轮流程一览
+## 文件结构
+
+    SKILL.md                                  # 薄入口：边界、熔断、路由、八轮索引（约 12 KB）
+    references/
+      intake-protocol.md                      # 8 轮逐轮话术 + Fast-Track + 特殊情形 + 输出模板
+      state-schema.md                         # PatientIntakeState + JSON Schema + 校验纪律
+      scales.md                               # PHQ-9 / GAD-7 / MDQ 条目、计分、边界
+      symptom-index.json                      # 症状→通道→机制→候选方向→红线（38 条）
+      neuropharmacology-and-phenomenology-kb.md  # 药化、PK/PD、CYP450、现象学词典
+      frontend-ui-architecture.md             # 真人设计对标 + Round 8 UI 契约
+      openfda-drugs/*.md                      # 68 种药物分片（脚本生成，含数值来源）
+      kb-index.json                           # 药物索引
+      clinical-semiology-dsm-icd.md           # v1 保留
+      triage-and-toxidromes.md                # v1 保留
+      patient-friendly-analogies.md           # v1 保留
+      legacy/psychopharmacology-chem-kb-v1.md # 已被取代
+    scripts/
+      build_1mb_kb.py                         # OpenFDA + PubChem 知识库构建器
+    .github/workflows/update-kb.yml            # 每周一自动刷新
+
+**按需读，不要一次全读**：SKILL.md 是入口，进入具体轮次才读 intake-protocol，做报告才读 UI 规范，查药才读单个分片。
+
+## 八轮流程
 
 | 轮次 | 主题 | 关键产出 |
 |---|---|---|
-| 1 | 就诊定位与安全底线 | 就诊阶段、主诉 Top2、自杀风险分层 A–D、风险灯号 |
-| 2 | 细颗粒度症状现象学 | 把“难受”翻译成临床术语（听觉过敏/Brain Zaps/痛性言语阻滞…） |
-| 3 | 病程、节律与行为锚点 | 时间轴、昼夜规律、1–10 功能锚点评分、缓解窗鉴别 |
-| 4 | 毫克级用药清点 | 通用名/规格/剂型/服药时间 + 即时剂型与半衰期核查 |
-| 5 | 既往药史与撤药史 | 真性难治 vs 伪耐药的阳性线索、延迟撤药排查 |
-| 6 | CYP450 与外源物质 | 咖啡因/烟酒/OTC 三级交互预警 |
-| 7 | 器质性检验与社会负荷 | 检验缺口清单、支持系统、复诊条件 |
-| 8 | 汇总并直出可视化 UI | 单文件 HTML 报告（见下） |
+| 1 | 就诊定位与安全底线 | 就诊阶段、主诉 Top2、自杀风险分层、灯号 |
+| 2 | 细颗粒度症状现象学 | 用 symptom-index 把「难受」译成术语与机制假设 |
+| 3 | 病程、节律与行为锚点 | 时间轴、睡眠架构、1–10 功能分、缓解窗 |
+| 4 | 毫克级用药清点 | 名/规格/剂型/时间 + 剂型与半衰期核查 |
+| 5 | 既往药史与撤药史 | 阳性线索、伪耐药 vs 真性难治 |
+| 6 | CYP450 与外源物质 | 咖啡因/烟酒/OTC 三级预警 |
+| 7 | 器质性缺口与社会负荷 | 待补检查清单、复诊条件 |
+| 8 | 汇总并直出可视化 UI | 单文件 HTML 报告 |
 
-支持 **Fast-Track**：用户一次性给出多轮信息时自动填充并跳过已完备轮次。
+量化可选用 PHQ-9 / GAD-7 / MDQ（见 references/scales.md），但量表只是锚点，不是诊断。
 
-## 第 8 轮生成的报告长什么样
+## 第 8 轮报告
 
 单文件、零外链、离线可开、可打印：
 
-1. **分层解剖机制图谱**（SVG，零重叠引线 + 2–3 态对比）
-2. **48 小时药代动力学沙盒**（Bateman 方程 + 时间游标刮擦）
-3. **Canvas2D 3D 分子构象引擎**（正交投影，无 WebGL 崩溃风险）
-4. **用药审计矩阵**（赛道错配 / 剂量漏洞 / 外源干扰 / 器质缺口 / 副作用伪装）
-5. **功能曲线 + 检验缺口清单 + 30 秒门诊沟通卡**
+1. 分层机制图谱（SVG，零重叠引线）
+2. 48 小时药代沙盒（Bateman 方程 + 时间游标）
+3. Canvas2D 3D 分子（正交投影，无 WebGL）
+4. 用药审计矩阵（赛道错配 / 剂量漏洞 / 外源干扰 / 器质缺口 / 副作用伪装）
+5. 功能曲线 + 检验缺口清单 + 30 秒沟通卡
 
-内置无障碍控制：暗夜墨纸 / 暖棉纸双主题、医生版 / 患者版双语言层、A+ 大字号、一键静止护眼（Reduced Motion）、大触控区、纯文本复制与 A4 打印。
+无障碍：暗墨纸 / 暖棉纸双主题、医生版 / 患者版、A+ 字号、一键静止护眼、大触控区、纯文本复制与 A4 打印。
 
-## 目录结构
+**数据不足就降级**：没有可靠的剂量 + t½ 就不画 PK，改画给药时间线；没有结构数据就不出 3D。宁可少一个模块，也不编造曲线。
 
-```
-psych-triage-and-prep/
-├── SKILL.md                                          # 主入口：状态机、熔断协议、路由
-├── references/
-│   ├── neuropharmacology-and-phenomenology-kb.md     # 药化 / PK-PD / CYP450 / 现象学词典
-│   ├── frontend-ui-architecture.md                   # 六大真实设计对标 + Round 8 UI 契约
-│   ├── triage-and-toxidromes.md                      # 分诊与中毒综合征
-│   ├── clinical-semiology-dsm-icd.md                 # 临床症状学与 DSM/ICD 对照
-│   ├── patient-friendly-analogies.md                 # 术语 → 大白话映射
-│   ├── kb-index.json                                 # 药物分片索引（自动生成）
-│   ├── openfda-drugs/                                # 68 种药物权威分片（自动生成）
-│   └── legacy/                                       # 已被取代的 v1 知识库
-└── scripts/
-    └── build_1mb_kb.py                               # OpenFDA + PubChem 知识库构建器
-```
+**示例政策**：本仓库不提供 AI 生成的示例界面。视觉参考只允许人工创作、经真实用户验证的界面（NHS、OWID、Distill、Linear、Bearable、Oura），详见 UI 规范第九节。
 
 ## 知识库构建（> 1.5 MB）
 
-```bash
-python scripts/build_1mb_kb.py            # 全量构建 68 种药物
-python scripts/build_1mb_kb.py --only duloxetine,pregabalin --force
-python scripts/build_1mb_kb.py --check    # 只检查体积
-```
+    python scripts/build_1mb_kb.py            # 全量 68 种药物
+    python scripts/build_1mb_kb.py --only duloxetine,pregabalin --force
+    python scripts/build_1mb_kb.py --check    # 只检查体积
 
-脚本只用 Python 标准库，无需 API key：从 OpenFDA 药品标签 API 抓取黑框警告、适应症、剂量、禁忌、警告、不良反应、相互作用、特殊人群、过量表现、化学描述与临床药理学章节；从 PubChem 抓取分子式、分子量、IUPAC 名、SMILES、XLogP、氢键供体/受体与 TPSA。
+只用 Python 标准库、无需 API key：OpenFDA 药品标签 API 抓黑框警告、适应症、剂量、禁忌、警告、不良反应、相互作用、特殊人群、过量表现、化学描述、临床药理学；PubChem 抓分子式、分子量、IUPAC 名、SMILES、XLogP、氢键、TPSA。OTC 标签走 Drug Facts 字段。
 
-输出：
-
-- `references/openfda-drugs/<slug>.md` — 每个药物一份专论，含来源与拉取时间戳
-- `references/kb-index.json` — 轻量索引，供 Agent 按 slug / 中文名 / 类别命中单个分片，**不必全量读入上下文**
+每篇分片都带「数值来源与口径」表：t½/CYP 来自 FDA 标签，Ki 是文献近似值（PDSP/BindingDB 类数据集），并附两条可当场复核的 API 链接。
 
 > 知识库是检索材料，不是处方依据。剂量与相互作用最终以当地说明书与医师判断为准。
 
-## 如何使用
+## 设计与分类学出处
 
-1. 把仓库放入宿主的技能目录（或直接让 Agent 读取 `SKILL.md`）。
-2. 对 Agent 说：「用 psych-triage-and-prep 帮我理一遍」。
-3. 按提示逐轮回答，或一次性把已知信息倒出来走 Fast-Track。
-4. 第 8 轮拿到 HTML 报告，就诊时打印或直接给医生看。
+- 现象学的**通道划分**参考 [FreeODwiki 主观效应索引](https://freeodwiki.org/%E8%8D%AF%E6%95%88/index.html)（视觉/听觉/触觉/分离/嗅味/多感官/认知/躯体/不适性躯体）。只借鉴分类结构与颗粒度，**不采用其中任何剂量、滥用或操作内容**。
+- 前端对标 NHS Digital Service Manual、Oura（Instrument）、Distill.pub、Braun / Linear、Bearable、Our World in Data；规则见 references/frontend-ui-architecture.md。
 
 ## 免责声明
 
-本项目是**沟通与整理工具**，不是医疗器械，不提供诊断、处方或治疗建议。任何用药调整必须由具备处方权的临床医师决定。若你或身边的人正处于危机中：中国大陆可拨 **12356**（全国统一心理援助热线）、**400-161-9995**，或 **120**；其他地区请拨当地急救号码。
+本项目是**沟通与整理工具**，不是医疗器械，不提供诊断、处方或治疗建议。任何用药调整必须由具备处方权的临床医师决定。若你或身边的人正处于危机中：中国大陆可拨 **12356**、**400-161-9995**，或 **120**；其他地区请拨当地急救号码。
 
 ## License
 

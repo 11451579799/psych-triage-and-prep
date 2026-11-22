@@ -427,6 +427,17 @@ def build_shard(entry: Dict[str, str], label: Optional[Dict[str, Any]],
     lines.append("| 消除半衰期 | %s |" % entry["half_life"])
     lines.append("| CYP450 / 代谢 | %s |" % entry["cyp"])
     lines.append("")
+    lines.append("## 数值来源与口径")
+    lines.append("")
+    lines.append("| 项目 | 来源 | 口径 |")
+    lines.append("|---|---|---|")
+    lines.append("| 适应症 / 剂量 / 禁忌 / 警告 / 不良反应 / 相互作用 | 本文下方 FDA 标签原样节选 | 美国标签；地区剂型与获批适应症可能不同，需查 NMPA |")
+    lines.append("| 消除半衰期 / CYP 通路 | FDA 标签 Clinical Pharmacology、Drug Interactions 章节 | 群体均值，个体差异可达数倍 |")
+    lines.append("| Ki（受体亲和力） | 文献近似值（PDSP / BindingDB 类数据集整理） | 仅作量级参考，非本药实测值 |")
+    lines.append("| 化学标识 | PubChem PUG-REST | 查询时点快照 |")
+    lines.append("")
+    lines.append("> 任何数值都不构成剂量依据；调量必须由处方医师决定。")
+    lines.append("")
     lines.append("## 精选临床要点（人工精编，非说明书原文）")
     lines.append("")
     lines.append(entry["note"])
@@ -561,6 +572,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             "file": "openfda-drugs/%s.md" % slug,
             "bytes": target.stat().st_size,
             "status": status,
+            "sources": ["openfda:label", "pubchem:property", "literature:ki-approx"],
         })
         if status == "pubchem-only":
             failures.append(slug)
