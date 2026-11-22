@@ -90,7 +90,6 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 | references/advice-tiers.md | T0–T4 分级、新药假设写法、免责模板、红线、拒绝就医场景 | **要给具体建议前必读** |
 | references/frontend-ui-architecture.md | 6 个真人设计项目对标、4 项技术栈、无障碍、tokens、HTML 契约 | **仅 Round 8** |
 | references/acute-relief-playbook.md | 患者视角短期缓解：0–24h / 24–72h / 1–2 周三档，8 个症状簇的可执行动作、停止条件、升级信号、30 秒门诊卡 | **用户说「现在就难受」或 Round 7/8** |
-| templates/report.html | 单文件报告骨架：四项控制 + 五模块降级态 + print + 无障碍基线 | **Round 8 从它起手，不要从零写** |
 | scripts/lint_report.py | 报告 HTML 合规自检（外链 / alert / 无障碍 / 打印 / 配色 / 体积），ERROR 非零退出 | **交付前必跑** |
 | references/openfda-drugs/药名.md | 单药标签精编 + PubChem 标识 + 数值来源 | 需要说明书措辞时，只读 1–2 篇 |
 | references/kb-index.json | 68 药索引（slug/中英名/类别/文件/字节） | 不确定有没有分片时 |
@@ -135,7 +134,7 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 
 生成前：回读关键项 → 标空缺 → 声明边界。
 
-**起手式**：把 `templates/report.html` 复制成 `psych-triage-report-<日期>.html`，往里填数据；不要从零写 CSS——tokens、四项控制、print、无障碍基线都已在模板里。
+**起手式**：先定信息骨架（结论 → 时间线与节律 → 症状转译 → 用药审计 → 现在做什么），再定视觉；HTML/CSS 自己写，按 references/frontend-ui-architecture.md 取舍，不套现成模板。
 
 生成时严格遵守 references/frontend-ui-architecture.md，硬约束：
 
@@ -146,7 +145,7 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
   - 没有检验结果 → 只出「待补清单」，不画正常值。
 - 禁用 alert/confirm/prompt、自动播放音频、高饱和闪烁、多文件拆分。
 - 未采集写「未采集」，推测标「推测」，参数标来源。
-- 视觉参照只用**人工创作**的成熟设计（NHS / OWID / Distill / Linear / Bearable / Oura），禁止 AI 生成风格：赛博渐变、毛玻璃堆叠、自动旋转器官、无意义粒子。
+- 视觉参照取人工创作的成熟设计（NHS / OWID / Distill / Linear / Bearable / Oura 等，不限这几家），少用 AI 生成风格那套：赛博渐变、毛玻璃堆叠、自动旋转器官、无意义粒子。
 
 - 患者侧必须有一块「**今天就能做的 1–3 件事**」，取自 references/acute-relief-playbook.md，带停止条件；不写「注意休息」这种不可执行的话。
 

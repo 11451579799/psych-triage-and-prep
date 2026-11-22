@@ -75,11 +75,11 @@
 
 **数据不足就降级**：没有可靠的剂量 + t½ 就不画 PK，改画给药时间线；没有结构数据就不出 3D。宁可少一个模块，也不编造曲线。
 
-**先复制骨架，再填数据**：`templates/report.html` 是可直接运行的样板（tokens、四项控制、print、无障碍齐备），Round 8 从它起手；交付前跑 `python scripts/lint_report.py <报告>.html`，ERROR 清零再交。
+**交付前先跑自检**：`python scripts/lint_report.py <报告>.html`，ERROR 清零再交——它查外链、alert、无障碍、print 样式、配色与体积。
 
 **患者要先能活过今晚**：报告除了给医生看，还必须回答「今天我能做哪 1–3 件事」。这部分来自 [acute-relief-playbook.md](references/acute-relief-playbook.md)：按 0–24h / 24–72h / 1–2 周三档，覆盖失眠、焦虑惊跳、惊恐发作、抑郁迟滞、躯体化、激越、撤药反跳、崩溃当小时，每条都带时长与停止条件——不写「注意休息」这类没法执行的话。
 
-**示例政策**：本仓库不提供 AI 生成的示例界面。视觉参考只允许人工创作、经真实用户验证的界面（NHS、OWID、Distill、Linear、Bearable、Oura），详见 UI 规范第九节。
+**示例政策**：本仓库不提供 AI 生成的示例界面。视觉参考看人工创作、经真实用户验证的界面（如 NHS、OWID、Distill、Linear、Bearable、Oura），详见 UI 规范第九节。
 
 ## 知识库构建（> 1.5 MB）
 
