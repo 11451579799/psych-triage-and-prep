@@ -1,13 +1,13 @@
 ---
 name: psych-triage-and-prep
-description: 精神与心理健康「有限责任」问诊辅助技能（v2.3）。8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件可视化报告；内置红黄绿熔断、T0–T4 建议分级（在明示免责与停止条件的前提下，允许给出可执行的建议，含把没用过的药写成假设）、药化/现象学知识库、症状→机制→药物索引、PHQ-9/GAD-7/MDQ 量表锚点与未成年人/第三人称/孕哺/老年/肝肾特殊路径。当用户描述情绪/躯体/认知症状希望梳理病史、询问精神科药物机制与副作用、准备初诊或复诊、或需要把主观体验转译成临床术语时使用。
-version: 2.3.1
+description: 精神与心理健康「有限责任」问诊辅助技能（v2.3）。8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件可视化报告；内置红黄绿熔断、T0–T3 建议分级（在明示免责与停止条件的前提下允许给出可执行的医嘱级建议）、药化/现象学知识库、症状→机制→药物索引、PHQ-9/GAD-7/MDQ 量表锚点与未成年人/第三人称/孕哺/老年/肝肾特殊路径。当用户描述情绪/躯体/认知症状希望梳理病史、询问精神科药物机制与副作用、准备初诊或复诊、或需要把主观体验转译成临床术语时使用。
+version: 2.3.0
 repository: https://github.com/11451579799/psych-triage-and-prep
 license: MIT
 tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, visualization]
 ---
 
-# psych-triage-and-prep (v2.3)
+# psych-triage-and-prep (v2.3.0)
 
 把「说不清楚的难受」整理成医生 30 秒能读完的结构化病历，把「我听不懂的药理」翻译成患者能复述的比喻，最后给一份可交互、可打印、可离线保存的单文件报告。
 
@@ -88,12 +88,13 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 | references/symptom-index.json | 症状 → 机制 → 候选药物 → 该问医生什么（按通道分类） | Round 2 术语转译与假设生成 |
 | references/scales.md | PHQ-9 / GAD-7 / MDQ 条目、计分、使用边界 | Round 1/3 需要量化时 |
 | references/advice-tiers.md | T0–T4 分级、新药假设写法、免责模板、红线、拒绝就医场景 | **要给具体建议前必读** |
-| references/design-references.md | 人工设计参考白名单（带链接）+ 生成报告后的可执行走查清单 | **第 8 轮出报告前必读** |
 | references/frontend-ui-architecture.md | 6 个真人设计项目对标、4 项技术栈、无障碍、tokens、HTML 契约 | **仅 Round 8** |
+| references/acute-relief-playbook.md | 患者视角短期缓解：0–24h / 24–72h / 1–2 周三档，8 个症状簇的可执行动作、停止条件、升级信号、30 秒门诊卡 | **用户说「现在就难受」或 Round 7/8** |
+| templates/report.html | 单文件报告骨架：四项控制 + 五模块降级态 + print + 无障碍基线 | **Round 8 从它起手，不要从零写** |
+| scripts/lint_report.py | 报告 HTML 合规自检（外链 / alert / 无障碍 / 打印 / 配色 / 体积），ERROR 非零退出 | **交付前必跑** |
 | references/openfda-drugs/药名.md | 单药标签精编 + PubChem 标识 + 数值来源 | 需要说明书措辞时，只读 1–2 篇 |
 | references/kb-index.json | 68 药索引（slug/中英名/类别/文件/字节） | 不确定有没有分片时 |
 | references/clinical-semiology-dsm-icd.md / triage-and-toxidromes.md / patient-friendly-analogies.md | v1 保留：术语对照 / 分诊 / 比喻 | 按需 |
-| references/legacy/psychopharmacology-chem-kb-v1.md | 已被取代的药化速查 | 一般不要读 |
 
 **检索顺序**：症状原话 → symptom-index（找机制假设与候选药）→ KB 对应章节（核机制）→ openfda 分片（核说明书措辞）→ 宿主联网（核最新/地区差异）。
 
@@ -106,7 +107,7 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 | 1 | 就诊阶段、Top2 主诉、自杀风险分层 A–D | 风险灯号 |
 | 2 | 把「难受」拆成感官/躯体/认知/意识维度 | 三列术语转译表 |
 | 3 | 病程、昼夜节律、缓解窗、1–10 功能锚点 | 时间轴 + 功能表 |
-| 4 | 毫克级用药清点（名/规格/剂型/钟点/掰开/依从性/确认状态） | 可算 PK 的用药表 + 待确认项 |
+| 4 | 毫克级用药清点（名/规格/剂型/时间/掰开） | 药代可用数据 |
 | 5 | 既往药史、曾经有效的线索、撤药史 | 阳性靶点假设 |
 | 6 | 咖啡因/烟酒/OTC/保健品 + CYP 冲突 | 三级交互预警 |
 | 7 | 检验缺口、现实压力、复诊条件 | 待补检查清单 |
@@ -132,7 +133,11 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 
 ## 6. Round 8：生成报告
 
-生成前：回读关键项 → 标空缺 → 声明边界。生成时严格遵守 references/frontend-ui-architecture.md，硬约束：
+生成前：回读关键项 → 标空缺 → 声明边界。
+
+**起手式**：把 `templates/report.html` 复制成 `psych-triage-report-<日期>.html`，往里填数据；不要从零写 CSS——tokens、四项控制、print、无障碍基线都已在模板里。
+
+生成时严格遵守 references/frontend-ui-architecture.md，硬约束：
 
 - 单文件、零外链、断网可开；暗墨纸/暖棉纸、医生版/患者版、A+、静止护眼四项控制齐全。
 - 五大模块**按数据裁剪**：
@@ -143,7 +148,11 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 - 未采集写「未采集」，推测标「推测」，参数标来源。
 - 视觉参照只用**人工创作**的成熟设计（NHS / OWID / Distill / Linear / Bearable / Oura），禁止 AI 生成风格：赛博渐变、毛玻璃堆叠、自动旋转器官、无意义粒子。
 
+- 患者侧必须有一块「**今天就能做的 1–3 件事**」，取自 references/acute-relief-playbook.md，带停止条件；不写「注意休息」这种不可执行的话。
+
 交付：psych-triage-report-日期.html + 5 行说明（有什么、缺什么、复诊先说什么）。
+
+交付前跑：`python scripts/lint_report.py psych-triage-report-<日期>.html` —— ERROR 必须清零，WARN 逐条看（不能解释的就改）。
 
 ---
 
@@ -155,8 +164,9 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 - [ ] Ki/t½/CYP/剂量上限有出处吗？没有标「待核验」了吗？
 - [ ] 用户只说了三个字，我是不是回了 800 字？
 - [ ] 报告里的药，都是用户说过的吗？
-- [ ] HTML 有外链吗？用了 alert 吗？
+- [ ] HTML 有外链吗？用了 alert 吗？跑过 `scripts/lint_report.py` 吗？
 - [ ] 数据不足的模块，是删掉了还是编了？
+- [ ] 「今天就能做的 1–3 件事」写了吗？每件事有动作、有时长、有停止条件吗？
 
 ---
 
@@ -170,7 +180,7 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
     │   ├── state-schema.md               # 状态字段 + JSON Schema
     │   ├── scales.md                     # PHQ-9 / GAD-7 / MDQ
     │   ├── advice-tiers.md               # T0–T4 建议分级、新药假设与免责执行
-    │   ├── design-references.md          # 人工设计白名单 + 走查清单（患者视角）
+    │   ├── acute-relief-playbook.md       # 短期缓解：三档时间尺度 × 8 症状簇
     │   ├── symptom-index.json            # 症状→机制→药物
     │   ├── neuropharmacology-and-phenomenology-kb.md
     │   ├── frontend-ui-architecture.md
@@ -178,10 +188,12 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
     │   ├── openfda-drugs/*.md            # 脚本生成
     │   ├── clinical-semiology-dsm-icd.md # v1 保留
     │   ├── triage-and-toxidromes.md      # v1 保留
-    │   ├── patient-friendly-analogies.md # v1 保留
-    │   └── legacy/
+    │   └── patient-friendly-analogies.md # v1 保留
+    ├── templates/
+    │   └── report.html                  # 单文件报告骨架（起手复制这个）
     ├── scripts/
-    │   └── build_1mb_kb.py
+    │   ├── build_1mb_kb.py
+    │   └── lint_report.py               # 报告合规自检
     └── .github/workflows/update-kb.yml
 
 ---

@@ -19,11 +19,7 @@
       },
       "course": { "duration": "", "rhythm": "", "sleep": { "onset": null, "maintenance": null, "early": null, "hours": null }, "cyclic_windows": null, "hypomanic_screen": "no|possible|yes|unknown" },
       "function_anchors": { "wash": [0,0,0], "leave_home": [0,0,0], "read": [0,0,0], "leisure": [0,0,0], "talk": [0,0,0] },
-      "meds": [ { "name": "", "cn": "", "brand": "", "mg": null, "per_dose": null, "form": "IR|ER|XR|CR|ODT|EC|OROS|patch|spray|liquid|unknown",
-                  "times": [], "since": "", "last_change": "", "prn_extra": "", "broken": false, "with_food": null,
-                  "confirmed": true, "source": "box|prescription|record|recall|inferred",
-                  "adherence": { "missed_per_week": "", "extra_dose_per_week": "", "double_dose": null, "managed_by": "self|family|pillbox|unknown" },
-                  "notes": "" } ],
+      "meds": [ { "name": "", "cn": "", "mg": null, "form": "IR|ER|XR|ODT|EC|patch|spray", "times": [], "since": "", "prn_extra": "", "broken": false, "with_food": null } ],
       "med_history": [ { "name": "", "dose": "", "duration": "", "effect": null, "stopped_why": "", "taper": "abrupt|gradual|unknown" } ],
       "exposures": { "caffeine": "", "tobacco": "", "alcohol": "", "grapefruit": false, "otc": [], "supplements": [] },
       "labs": { "done": [], "missing": [], "notes": "" },
@@ -131,28 +127,13 @@
               "name": { "type": "string" },
               "cn": { "type": "string" },
               "mg": { "type": ["number", "null"] },
-              "form": { "enum": ["IR", "ER", "XR", "CR", "ODT", "EC", "OROS", "patch", "spray", "liquid", "unknown"] },
+              "form": { "enum": ["IR", "ER", "XR", "ODT", "EC", "patch", "spray", "unknown"] },
               "times": { "type": "array", "items": { "type": "string" } },
               "since": { "type": "string" },
               "prn_extra": { "type": "string" },
               "broken": { "type": "boolean" },
               "with_food": { "type": ["boolean", "null"] },
-              "inferred": { "type": "boolean" },
-              "brand": { "type": "string" },
-              "per_dose": { "type": ["number", "null"] },
-              "last_change": { "type": "string" },
-              "confirmed": { "type": "boolean" },
-              "source": { "enum": ["box", "prescription", "record", "recall", "inferred", "unknown"] },
-              "adherence": {
-                "type": "object",
-                "properties": {
-                  "missed_per_week": { "type": "string" },
-                  "extra_dose_per_week": { "type": "string" },
-                  "double_dose": { "type": ["boolean", "null"] },
-                  "managed_by": { "enum": ["self", "family", "pillbox", "unknown"] }
-                }
-              },
-              "notes": { "type": "string" }
+              "inferred": { "type": "boolean" }
             }
           }
         },

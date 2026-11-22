@@ -28,7 +28,7 @@
       state-schema.md                         # PatientIntakeState + JSON Schema + 校验纪律
       scales.md                               # PHQ-9 / GAD-7 / MDQ 条目、计分、边界
       advice-tiers.md                         # T0–T4 分级、新药假设写法、免责、红线、拒绝就医场景
-      design-references.md                    # 人工设计参考白名单（带链接）+ 患者视角走查清单
+      acute-relief-playbook.md                # 短期缓解：0–24h / 24–72h / 1–2 周 × 8 个症状簇
       symptom-index.json                      # 症状→通道→机制→候选方向→红线（38 条）
       neuropharmacology-and-phenomenology-kb.md  # 药化、PK/PD、CYP450、现象学词典
       frontend-ui-architecture.md             # 真人设计对标 + Round 8 UI 契约
@@ -37,9 +37,11 @@
       clinical-semiology-dsm-icd.md           # v1 保留
       triage-and-toxidromes.md                # v1 保留
       patient-friendly-analogies.md           # v1 保留
-      legacy/psychopharmacology-chem-kb-v1.md # 已被取代
+    templates/
+      report.html                             # 单文件报告骨架（四项控制 + 五模块降级态）
     scripts/
       build_1mb_kb.py                         # OpenFDA + PubChem 知识库构建器
+      lint_report.py                          # 报告 HTML 合规自检
     .github/workflows/update-kb.yml            # 每周一自动刷新
 
 **按需读，不要一次全读**：SKILL.md 是入口，进入具体轮次才读 intake-protocol，做报告才读 UI 规范，查药才读单个分片。
@@ -51,7 +53,7 @@
 | 1 | 就诊定位与安全底线 | 就诊阶段、主诉 Top2、自杀风险分层、灯号 |
 | 2 | 细颗粒度症状现象学 | 用 symptom-index 把「难受」译成术语与机制假设 |
 | 3 | 病程、节律与行为锚点 | 时间轴、睡眠架构、1–10 功能分、缓解窗 |
-| 4 | 毫克级用药清点 | 药名/规格/剂型/钟点 + 剂型红线、时间对齐、实际 vs 处方、待确认项 |
+| 4 | 毫克级用药清点 | 名/规格/剂型/时间 + 剂型与半衰期核查 |
 | 5 | 既往药史与撤药史 | 阳性线索、伪耐药 vs 真性难治 |
 | 6 | CYP450 与外源物质 | 咖啡因/烟酒/OTC 三级预警 |
 | 7 | 器质性缺口与社会负荷 | 待补检查清单、复诊条件 |
@@ -72,6 +74,10 @@
 无障碍：暗墨纸 / 暖棉纸双主题、医生版 / 患者版、A+ 字号、一键静止护眼、大触控区、纯文本复制与 A4 打印。
 
 **数据不足就降级**：没有可靠的剂量 + t½ 就不画 PK，改画给药时间线；没有结构数据就不出 3D。宁可少一个模块，也不编造曲线。
+
+**先复制骨架，再填数据**：`templates/report.html` 是可直接运行的样板（tokens、四项控制、print、无障碍齐备），Round 8 从它起手；交付前跑 `python scripts/lint_report.py <报告>.html`，ERROR 清零再交。
+
+**患者要先能活过今晚**：报告除了给医生看，还必须回答「今天我能做哪 1–3 件事」。这部分来自 [acute-relief-playbook.md](references/acute-relief-playbook.md)：按 0–24h / 24–72h / 1–2 周三档，覆盖失眠、焦虑惊跳、惊恐发作、抑郁迟滞、躯体化、激越、撤药反跳、崩溃当小时，每条都带时长与停止条件——不写「注意休息」这类没法执行的话。
 
 **示例政策**：本仓库不提供 AI 生成的示例界面。视觉参考只允许人工创作、经真实用户验证的界面（NHS、OWID、Distill、Linear、Bearable、Oura），详见 UI 规范第九节。
 

@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="zh-CN" data-theme=dark data-motion=on data-lang=patient>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>问诊整理报告 · 仅供就诊沟通</title>
+<!--
+用途：把多轮问诊整理成一页离线可开、可打印的报告；本文件＝骨架＋占位。
+填入：window.__REPORT__（字段见 references/state-schema.md）；#risk-lamp[data-risk]；#conclusions 三条 li；
+#m1-line 的 points 与 circle[data-src]；#m1-timeline 的 .ck；#map-figure[data-map-state]；#m3-audit tr[data-src]；#gen-date。
+可选：无锚点删图 1；无机制删图 3；无剂量删规格列；无 t½ 不初始化曲线；
+无暴露删 M4 预警；无检验只留清单；M5 永远保留。
+-->
+<style>
+:root[data-theme=dark]{--bg-canvas:#131518;--bg-surface:#1a1d22;--bg-elevated:#21252c;--bg-recessed:#101215;--border-hairline:rgba(255,255,255,.085);--border-strong:rgba(255,255,255,.16);--ink-primary:#efede8;--ink-secondary:#a8adb8;--ink-muted:#707684;--pigment-teal:#6ab5a6;--pigment-coral:#da7a70;--pigment-amber:#d9a554;--pigment-slate:#8ca4cf}
+:root[data-theme=light]{--bg-canvas:#f1eee7;--bg-surface:#faf8f3;--bg-elevated:#fffefa;--bg-recessed:#e9e4da;--border-hairline:rgba(38,35,30,.11);--border-strong:rgba(38,35,30,.22);--ink-primary:#1d1c19;--ink-secondary:#4e4b44;--ink-muted:#7b766b;--pigment-teal:#246a5e;--pigment-coral:#b3463c;--pigment-amber:#9b6718;--pigment-slate:#3d5782}
+:root{--sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;--mono:ui-monospace,Consolas,monospace;--r:10px;--rc:8px;--ease:cubic-bezier(.2,0,.2,1);--measure:40em;--tap:44px;--base:200ms}
+*,:before,:after{box-sizing:border-box}
+html{font-size:16px}
+html.font-large{font-size:18px}
+body{margin:0;background:var(--bg-canvas);color:var(--ink-primary);font-family:var(--sans);line-height:1.65;overflow-wrap:break-word}
+h1,h2,h3{line-height:1.4;margin:0 0 .4em;font-weight:650}
+p{margin:0 0 .6em}
+ul,ol{margin:0 0 .6em;padding-left:1.2em}li{margin:.15em 0}
+small{font-size:.8em;color:var(--ink-secondary)}b{font-weight:650}
+[hidden]{display:none!important}
+.tl,.tbl td,.kv dd{font-variant-numeric:tabular-nums}
+.src,.muted{font-size:.78rem;color:var(--ink-muted);line-height:1.5}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:76rem;margin:0 auto;display:grid;gap:1rem;padding:1rem clamp(.85rem,3vw,2rem) 2rem}
+:focus-visible{outline:2px solid var(--pigment-slate);outline-offset:2px;border-radius:2px}
+.sk{position:absolute;left:-9em}
+.sk:focus{left:.6rem;top:.6rem;z-index:9;background:var(--bg-elevated);padding:.4rem .6rem;border:2px solid var(--pigment-slate)}
+button{font:inherit;color:inherit}
+button,a,input,label,summary{min-height:var(--tap)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem;padding:.5rem clamp(.85rem,3vw,2rem);background:var(--bg-surface);border-bottom:1px solid var(--border-strong);font-size:.9rem}
+.bar b{margin-right:auto}
+.ctrls{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.seg{display:inline-flex;border:1px solid var(--border-strong);border-radius:var(--rc);overflow:hidden;background:var(--bg-recessed)}
+.seg button{border:0;background:transparent;padding:0 .6rem;font-size:.84rem;color:var(--ink-secondary);cursor:pointer}
+.seg button[aria-pressed=true],.ctl[aria-pressed=true]{background:var(--bg-elevated);color:var(--ink-primary);box-shadow:inset 0 0 0 1px var(--border-strong)}
+.ctl{display:inline-flex;align-items:center;gap:.3rem;padding:0 .55rem;border:1px solid var(--border-strong);border-radius:var(--rc);background:var(--bg-elevated);font-size:.84rem;cursor:pointer}
+.hero,.mod{background:var(--bg-surface);border:1px solid var(--border-strong);border-radius:var(--r);padding:clamp(1rem,2.6vw,1.4rem)}
+.mod{border-color:var(--border-hairline)}
+.eyebrow{margin:0 0 .3em;font-size:.76rem;letter-spacing:.1em;color:var(--ink-muted)}
+.hero h1{font-size:clamp(1.3rem,1rem+1.4vw,1.8rem);margin:0 0 .6rem}
+.risk{border:1px solid var(--tone);border-left-width:4px;border-radius:var(--r);padding:.55rem .75rem;background:var(--bg-recessed);margin:0 0 .8rem;--tone:var(--pigment-amber)}
+.risk>p:first-child{margin:0 0 .3em;font-size:.76rem;color:var(--ink-muted)}
+.risk .st{display:none;gap:.5rem}
+.risk .sh{font-size:1.25rem;line-height:1.25;color:var(--tone)}
+.risk .st p{margin:0}
+.risk .st span{display:block;font-size:.86rem;color:var(--ink-secondary)}
+.risk[data-risk=green]{--tone:var(--pigment-teal)}.risk[data-risk=red]{--tone:var(--pigment-coral)}
+.risk[data-risk=red] .st[data-s=red],.risk[data-risk=green] .st[data-s=green],.risk[data-risk=yellow] .st[data-s=yellow]{display:flex}
+.mod h2{font-size:1.14rem;margin:0 0 .2rem}
+.lede{margin:0;font-size:.87rem;color:var(--ink-secondary);max-width:var(--measure)}
+h3{font-size:.96rem;margin:.8rem 0 .3rem}
+.hero p,.hero li,.mod p,.mod li,.ft p{max-width:var(--measure)}
+.fig{margin:.8rem 0;padding:.5rem .6rem;border:1px solid var(--border-hairline);border-radius:var(--r);background:var(--bg-recessed)}
+.fc{display:block;margin-bottom:.3rem;font-size:.84rem}.fc b{display:block}
+.chart,.map{display:block;width:100%;height:auto;color:var(--ink-secondary)}
+.gl{stroke:var(--border-hairline)}.ax,.an{fill:var(--ink-secondary);font-size:11px}.ax{fill:var(--ink-muted)}
+.band{fill:var(--pigment-teal);opacity:.13}
+.ln{fill:none;stroke:var(--pigment-slate);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.pt{fill:var(--bg-surface);stroke:var(--pigment-slate);stroke-width:2}
+.sx{overflow-x:auto;overscroll-behavior-x:contain;max-width:100%}
+.tl{display:grid;grid-template-columns:4.6rem repeat(6,minmax(0,1fr));border:1px solid var(--border-hairline);border-radius:var(--rc);overflow:hidden;background:var(--bg-surface);font-size:.74rem}
+.tl>*{border-left:1px solid var(--border-hairline);border-top:1px solid var(--border-hairline);min-height:2.2rem;padding:.2rem .25rem;display:flex;align-items:center;justify-content:center;text-align:center}
+.tl>:nth-child(-n+7){border-top:0}
+.tl>:nth-child(7n+1){border-left:0;display:block;padding-top:.35rem}
+.tl .hd{background:var(--bg-recessed);color:var(--ink-muted);font-size:.66rem}
+.tl .nm small{font-size:.66rem}
+.ck{display:block;border:1px solid var(--pigment-slate);border-radius:5px;background:var(--bg-elevated);padding:.12rem .1rem;font-size:.64rem}
+.ck[data-src*=待核验]{border-style:dashed;border-color:var(--pigment-amber)}
+.kv{display:grid;grid-template-columns:minmax(5rem,auto) 1fr;gap:.2rem .7rem;margin:0 0 .4rem;font-size:.85rem}
+.kv dd{margin:0}
+.tbl{width:100%;min-width:34rem;border-collapse:collapse;font-size:.84rem}
+.tbl th,.tbl td{border-bottom:1px solid var(--border-hairline);padding:.38rem .45rem;text-align:left;vertical-align:top}
+.tbl thead th{font-size:.75rem;color:var(--ink-secondary);border-bottom:1px solid var(--border-strong)}
+.tbl tbody th{font-weight:600}.nt,.bound{border:1px solid var(--border-hairline);border-left:3px solid var(--pigment-amber);border-radius:var(--rc);background:var(--bg-recessed);padding:.5rem .7rem;margin:.5rem 0;font-size:.86rem}
+.ix{list-style:none;margin:0 0 .5rem;padding:0;display:grid;gap:.4rem}
+.ix li{display:flex;gap:.5rem;border:1px solid var(--border-hairline);border-left:3px solid var(--tone);border-radius:var(--rc);padding:.4rem .6rem;background:var(--bg-recessed);font-size:.85rem;--tone:var(--pigment-slate)}
+.ix li[data-level=high]{--tone:var(--pigment-coral)}.ix li[data-level=mid]{--tone:var(--pigment-amber)}
+.ix .sh{color:var(--tone);font-size:1rem;line-height:1.35}.ix p{margin:0}
+.chk{list-style:none;margin:0;padding:0}
+.chk label{display:flex;align-items:flex-start;gap:.5rem;padding:.3rem .1rem;border-bottom:1px solid var(--border-hairline);font-size:.85rem}
+.chk input{inline-size:1.1rem;block-size:1.1rem;min-height:0;margin-top:.2rem;flex:none}
+.disc{background:var(--bg-recessed);border:1px solid var(--border-strong);border-left:3px solid var(--pigment-amber);border-radius:var(--rc);padding:.55rem .7rem;margin:.3rem 0 .7rem;font-size:.84rem}
+.disc ol{margin:0;padding-left:1.1rem}
+.clinic{border:1.5px solid var(--border-strong);border-radius:var(--r);background:var(--bg-elevated);padding:.75rem;margin:.3rem 0 .7rem}
+.clinic h3{margin-top:0}
+.clinic dl{display:grid;grid-template-columns:minmax(4.6rem,auto) 1fr;gap:.2rem .7rem;margin:0;font-size:.85rem}
+.clinic dt{color:var(--ink-secondary)}.clinic dd{margin:0}.clinic ol{margin:.1rem 0 0;padding-left:1rem}
+.exp{display:flex;flex-wrap:wrap;gap:.5rem .7rem;align-items:center}
+.btn{padding:0 .8rem;border:1px solid var(--border-strong);border-radius:var(--rc);background:var(--bg-elevated);font-size:.85rem;cursor:pointer}
+.fb{margin-top:.5rem;padding:.5rem;border:1px solid var(--pigment-amber);border-radius:var(--rc);background:var(--bg-recessed);font-size:.84rem}
+.fb textarea{width:100%;min-height:6.5rem;margin-top:.3rem}
+.ft{border-top:1px solid var(--border-strong);padding-top:.8rem;color:var(--ink-secondary);font-size:.8rem}
+.ft summary{padding:.3rem .5rem;border:1px solid var(--pigment-amber);border-radius:var(--rc);color:var(--pigment-amber);font-weight:600;font-size:.82rem}
+.pf{display:none}
+.map .o{fill:var(--bg-elevated);stroke:var(--border-strong);stroke-width:1.5}
+.map .e,.map .l{stroke:var(--border-strong);fill:none}.map .e{stroke-width:1.25}
+.map .n{fill:var(--bg-elevated);stroke:var(--border-strong);stroke-width:1.5}
+.map .u{fill:var(--ink-secondary);font-size:10px}.map .lb{fill:var(--ink-primary);font-size:12.5px}
+.map[data-map-state=overload] .n1{fill:var(--pigment-coral);fill-opacity:.28;stroke:var(--pigment-coral)}
+.map[data-map-state=overload] .n2,.map[data-map-state=overload] .n3{fill:var(--pigment-coral);fill-opacity:.18;stroke:var(--pigment-coral)}
+.map[data-map-state=relief] .n2{fill:var(--pigment-teal);fill-opacity:.3;stroke:var(--pigment-teal)}
+.map[data-map-state=relief] .n1,.map[data-map-state=relief] .n3{fill:var(--pigment-amber);fill-opacity:.18;stroke:var(--pigment-amber)}
+.map[data-map-state=target] .n{fill:var(--pigment-teal);fill-opacity:.16;stroke:var(--pigment-teal)}
+.st{display:none;margin:.25rem 0 0;padding-left:1.1rem;font-size:.85rem}
+.mst{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.4rem 0 .1rem}
+.pk{margin-top:.8rem;border-top:1px dashed var(--border-strong);padding-top:.7rem}
+.pkm{margin-top:.5rem;border:1px solid var(--border-hairline);border-radius:var(--r);padding:.6rem;background:var(--bg-recessed)}
+.pkc{display:block;width:100%;height:clamp(190px,40vw,260px);border:1px solid var(--border-hairline);border-radius:var(--rc);background:var(--bg-surface);touch-action:none;cursor:crosshair}
+.pkp{display:grid;gap:.3rem .7rem;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));margin:.5rem 0 .2rem}
+.pkp label{display:flex;flex-direction:column;font-size:.8rem}
+.pkp input[type=range]{width:100%;min-height:2rem;accent-color:var(--pigment-slate)}
+.pp{display:none}
+@media (max-width:560px){.map .l,.map .lb{display:none}.st{display:block}.seg button,.ctl{padding:0 .45rem}}
+@media (prefers-reduced-motion:reduce){*,:before,:after{transition-duration:.001ms!important;animation-duration:.001ms!important}}
+html[data-motion=off] *,html[data-motion=off] :before,html[data-motion=off] :after{transition:none!important;animation:none!important}
+html[data-lang=patient] [data-clin],html[data-lang=clinician] [data-patient]{display:none}
+@media print{
+@page{size:A4;margin:14mm 12mm}
+:root[data-theme]{--bg-canvas:#fffefb;--bg-surface:#fffefb;--bg-elevated:#fffefb;--bg-recessed:#f3f0e9;--border-hairline:#c9c4b8;--border-strong:#6f6a60;--ink-primary:#16140f;--ink-secondary:#3c3933;--ink-muted:#5d5952;--pigment-teal:#3a4a46;--pigment-coral:#3a3a3a;--pigment-amber:#3a3a3a;--pigment-slate:#333c4c}
+html,body{background:#fffefb!important;color:#16140f!important;font-size:10.5pt!important}
+.bar,.exp,.fb{display:none!important}
+.wrap{display:block;max-width:none;padding:0}
+.mod,.fig,.tbl tr{break-inside:avoid}
+.mod{border:1px solid #c9c4b8;background:transparent;margin:0 0 6mm;padding:0 0 2mm}
+.fig{border-color:#b5b0a5;padding:2mm}
+.ln{stroke:#333!important}.pt{fill:#fffefb!important;stroke:#333!important}.band{fill:#d8d5cd!important;opacity:1!important}
+.sx{overflow:visible!important}.tl{min-width:0;border-color:#999;font-size:7pt}.tl>*{border-color:#d5d1c7!important;min-height:0;padding:1mm}.ck{border-color:#444;background:#f3f0e9;color:#16140f}
+.tbl{min-width:0;font-size:9pt}.tbl th,.tbl td{border-bottom:1px solid #999}
+.pkm{display:none!important}
+.pp{display:block!important;font-size:8.5pt;border:1px dashed #888;padding:2mm;margin:2mm 0}
+.pf{display:block!important;margin-top:5mm;border-top:1px solid #999;padding-top:2mm;font-size:8.5pt;color:#3c3933}
+}
+</style>
+</head>
+<body>
+<a class="sk" href="#main">跳到正文</a>
+<header class="bar">
+<b>问诊整理报告<small>仅供就诊沟通 · 不是诊断</small></b>
+<div class="ctrls">
+<div class="seg" role="group" aria-label="语言层">
+<button type="button" data-lang=clinician aria-pressed=false>医生版</button>
+<button type="button" data-lang=patient aria-pressed=true>患者版</button>
+</div>
+<button type="button" class="ctl" data-theme-toggle aria-label="切换纸张主题"><span aria-hidden="true">◐</span><span data-theme-label>暗墨纸</span></button>
+<button type="button" class="ctl" data-font-toggle aria-pressed=false><span aria-hidden="true">A+</span>大字号</button>
+<button type="button" class="ctl" data-motion-toggle aria-pressed=false><span aria-hidden="true">◫</span>静止护眼</button>
+</div>
+</header>
+<main id="main" class="wrap">
+<section id="s01" class="hero" aria-labelledby="s01h">
+<p class="eyebrow">第 8 轮 · 回读校验</p>
+<h1 id="s01h">先看这三行，再决定要不要往下读</h1>
+<div class="risk" id="risk-lamp" data-risk=yellow>
+<p>风险灯号（文字与形状同时表达，颜色不是唯一信息）</p>
+<div class="st" data-s=green><span class="sh" aria-hidden="true">●</span><p><b>绿 · 没有需要当天处理的信号</b><span>按计划就诊；有变化看页脚红线。</span></p></div>
+<div class="st" data-s=yellow><span class="sh" aria-hidden="true">▲</span><p><b>黄 · 需要近期面诊，不是急诊</b><span>2 周内见到医生；页脚红线任一条 → 当天就医。</span></p></div>
+<div class="st" data-s=red><span class="sh" aria-hidden="true">■</span><p><b>红 · 需要当天当面处理</b><span>停止排查，联系医生或去急诊。</span></p></div>
+</div>
+<ol id="conclusions">
+<li data-finding-id=f1><b>晨起起不来、白天脑雾、傍晚稍好</b>：更像节律与睡眠债，不是意志力。</li>
+<li data-finding-id=f2><b>两种药的时间可能撞上困倦高峰</b>：值得核对，不是停药理由。</li>
+<li data-finding-id=f3><b>先补 1 项检查再谈加药</b>：甲功与血常规缺失。</li>
+</ol>
+<p class="bound"><b>是什么：</b>把主诉、用药、缺的检查排成医生 30 秒能读完的顺序。<b>不是什么：</b>不是诊断、不是处方，用药以面诊医生为准。</p>
+<p class="muted">缺失 t½、检验、分子数据 → 已降级，不用示例值填充。</p>
+</section>
+
+<section id="m1" class="mod" aria-labelledby="m1h">
+<h2 id="m1h">时间线与昼夜节律</h2>
+<figure class="fig">
+<figcaption class="fc"><b>图 1 · 7 天主观波动（0–10，越高越好）</b><span class="src">来源：自评（示例值）。</span></figcaption>
+<svg class="chart" viewBox="0 0 640 206" role="img" aria-label="7 天主观状态折线：D3 最低 3 分，D6 回升 7 分">
+<g aria-hidden="true">
+<line class="gl" x1="56" y1="172" x2="620" y2="172"/><line class="gl" x1="56" y1="100" x2="620" y2="100"/><line class="gl" x1="56" y1="28" x2="620" y2="28"/>
+<text class="ax" x="46" y="176" text-anchor="end">0</text><text class="ax" x="46" y="104" text-anchor="end">5</text><text class="ax" x="46" y="32" text-anchor="end">10</text>
+<rect class="band" x="404" y="24" width="196" height="152" rx="4"/><text class="an" x="412" y="42">傍晚缓解窗</text>
+<text class="ax" x="56" y="192" text-anchor="middle">D1</text><text class="ax" x="238" y="192" text-anchor="middle">D3</text><text class="ax" x="510" y="192" text-anchor="middle">D6</text><text class="ax" x="600" y="192" text-anchor="middle">D7</text>
+<polyline id="m1-line" class="ln" data-src="用户自评（Round 3 功能锚点）" points="56,86 147,114 238,158 328,129 419,114 510,57 600,100"/>
+<circle class="pt" cx="56" cy="86" r="3.5" data-src="自评" data-value="6"/><circle class="pt" cx="238" cy="158" r="3.5" data-src="自评" data-value="3"/><circle class="pt" cx="510" cy="57" r="3.5" data-src="自评" data-value="7"/><circle class="pt" cx="600" cy="100" r="3.5" data-src="自评" data-value="5"/>
+</g>
+</svg>
+</figure>
+<figure class="fig" id="m1-timeline">
+<figcaption class="fc"><b>图 2 · 24 小时给药时间线（CSS grid）</b><span class="src">来源：自述 + 说明书剂型；虚线＝待核验。</span></figcaption>
+<div class="tl" role="group" aria-label="24 小时给药时间线，按 4 小时分六格">
+<span class="hd">时间</span><span class="hd">00–04</span><span class="hd">04–08</span><span class="hd">08–12</span><span class="hd">12–16</span><span class="hd">16–20</span><span class="hd">20–24</span>
+<span class="nm"><b>艾司西酞普兰</b><small>10 mg · 早</small></span><i></i><i></i><span><span class="ck" data-src="自述 R4">08:00</span></span><i></i><i></i><i></i>
+<span class="nm"><b>曲唑酮</b><small>50 mg · 睡前</small></span><i></i><i></i><i></i><i></i><i></i><span><span class="ck" data-src="自述，规格待核验">22:30</span></span>
+</div>
+</figure>
+<dl class="kv">
+<dt>入睡困难</dt><dd>7/10</dd><dt>夜间易醒</dt><dd>6/10</dd>
+<dt>平均睡眠</dt><dd>5.5 h</dd><dt>最差时段</dt><dd>08:00–11:00</dd>
+</dl>
+<div class="pk" id="pk-block">
+<h3>48 小时药代沙盒 · 未建模</h3>
+<p class="muted">没有可信剂量 + t½：用图 2 与图 1 替代，不画曲线、不编参数。</p>
+<button type="button" class="btn gh" id="pk-demo" aria-expanded=false aria-controls="pk-model">查看示意曲线（演示，不含你的药名与剂量）</button>
+<div class="pkm" id="pk-model" hidden>
+<canvas id="pk-canvas" class="pkc" role="img" aria-label="48 小时相对浓度示意曲线"></canvas>
+<div class="pkp">
+<label for="pk-t">半衰期 t½ <output id="pk-to" for="pk-t">12.0 h</output><input type="range" id="pk-t" min="4" max="36" step="0.5" value="12"></label>
+<label for="pk-ka">吸收 k_a <output id="pk-kao" for="pk-ka">1.5 /h</output><input type="range" id="pk-ka" min="0.5" max="3" step="0.1" value="1.5"></label>
+<label for="pk-f">生物利用度 F <output id="pk-fo" for="pk-f">100%</output><input type="range" id="pk-f" min="0.3" max="1" step="0.05" value="1"></label>
+<label for="pk-c">时间游标 <output id="pk-co" for="pk-c">14.0 h</output><input type="range" id="pk-c" min="0" max="48" step="0.25" value="14"></label>
+</div>
+<p class="src">四参数均为<b>假设</b>，非说明书值；纵轴为相对浓度，峰值记 1.0。</p>
+<p class="muted" id="pk-readout">游标 14.0 h｜相对浓度 0.00（峰值的 0%）</p>
+<p class="muted">个体参数未知，曲线为示意，不能用于判断血药浓度是否达标。</p>
+</div>
+<p class="pp">打印摘要：本块未建模，不提供曲线；参数均为<b>假设</b>，峰时示意约 <span id="pk-peak">5.4</span> 小时。</p>
+</div>
+<!-- 降级 · M1：无功能锚点分数删图 1 改文字；无剂量+t½ 保留时间线，不初始化 Canvas。 -->
+</section>
+
+<section id="m2" class="mod" aria-labelledby="m2h">
+<h2 id="m2h">症状 · 机制 · 候选方向</h2>
+<p class="lede">左原文，中机制，右门诊可问方向；不是处方。</p>
+<div class="sx" tabindex="0" role="region" aria-label="症状、机制与候选方向对照表，可横向滚动">
+<table class="tbl">
+<caption>表 1 · 三列转译；机制为假设。</caption>
+<thead><tr><th scope="col">你的原话</th><th scope="col">可能的机制</th><th scope="col">门诊候选方向（不是处方）</th></tr></thead>
+<tbody>
+<tr data-src="知识库 symptom-index（假设）"><th scope="row">「早上像被钉在床上」</th>
+<td><span data-patient>不是懒：启动奖励的信号弱，身体动不起来。</span><span data-clin>奖赏启动通路（NE / DA）功能下降。</span></td>
+<td>问医生：以动力缺失为主，值不值得加强 NE / DA？先排双相谱系。</td></tr>
+<tr data-src="知识库 symptom-index（假设）"><th scope="row">「声音一大就烦，光也刺眼」</th>
+<td><span data-patient>感官音量被拧大，正常输入变噪音。</span><span data-clin>听觉门控变窄、畏光；见于焦虑、偏头痛与部分撤药反应。</span></td>
+<td>先降噪与稳睡眠；再问：更像焦虑、偏头痛，还是药物相关？</td></tr>
+</tbody></table>
+</div>
+<p class="nt"><b>措辞边界：</b>上表是「符合某类特征，需面诊」的整理，不是诊断。</p>
+<figure class="fig">
+<figcaption class="fc"><b>图 3 · 分层机制图谱（三态切换，静态精工）</b></figcaption>
+<svg class="map" id="map-figure" data-map-state=overload viewBox="0 0 640 240" role="img" aria-label="分层机制图谱：感觉输入、启动奖赏、睡眠节律">
+<g aria-hidden="true">
+<circle class="o" cx="150" cy="120" r="52"/>
+<path class="e" d="M150 68L150 96"/><path class="e" d="M150 144L150 172"/>
+<circle class="n n1" cx="150" cy="96" r="7"/><circle class="n n2" cx="150" cy="120" r="8"/><circle class="n n3" cx="150" cy="144" r="6.5"/>
+</g>
+<g>
+<path class="l" d="M150 96L300 96L300 52L430 52"/><path class="l" d="M170 120L300 120L430 120"/><path class="l" d="M150 144L300 144L300 188L430 188"/>
+<text class="lb" x="436" y="56">① 感官输入过载</text><text class="lb" x="436" y="124">② 启动与奖赏通路</text><text class="lb" x="436" y="192">③ 睡眠与觉醒节律</text>
+</g>
+</svg>
+<div class="mst" role="group" aria-label="机制图谱状态">
+<button type="button" class="btn" data-map=overload aria-pressed=true>当前过载</button>
+<button type="button" class="btn" data-map=relief aria-pressed=false>某药显效</button>
+<button type="button" class="btn" data-map=target aria-pressed=false>目标态</button>
+</div>
+<p class="muted" id="mcap" aria-live="polite">当前过载态：感官输入先被放大，启动通路被压住。这是描述体验，不是诊断。</p>
+<ol class="st">
+<li><b>① 感官输入：</b>声音光人群被放大。</li>
+<li><b>② 启动与奖赏：</b>起床、出门最费劲。</li>
+<li><b>③ 睡眠节律：</b>入睡晚、早上起不来。</li>
+</ol>
+</figure>
+<!-- 降级 · M2：只有主诉无维度拆解 → 删第三列与图 3。 -->
+</section>
+
+<section id="m3" class="mod" aria-labelledby="m3h">
+<h2 id="m3h">用药审计表</h2>
+<div class="sx" tabindex="0" role="region" aria-label="用药审计表，可横向滚动">
+<table class="tbl" id="m3-audit">
+<caption>表 2 · 示例行不是用药建议。</caption>
+<thead><tr><th scope="col">名称</th><th scope="col">规格</th><th scope="col">时间</th><th scope="col">掰开 / 剂型</th><th scope="col">来源</th></tr></thead>
+<tbody>
+<tr data-src="自述 + 说明书"><th scope="row">艾司西酞普兰<small>Escitalopram</small></th><td>10 mg</td><td>08:00</td><td>整片吞服；有刻痕可按说明书掰开。</td><td>自述</td></tr>
+<tr data-src="自述，规格待核验"><th scope="row">曲唑酮<small>Trazodone</small></th><td>50 mg <small>待核验</small></td><td>22:30</td><td>整片吞服；是否缓释看药盒，掰前问药师。</td><td>自述</td></tr>
+</tbody></table>
+</div>
+<p class="nt"><b>停止条件：</b>皮疹迅速蔓延、发热、口眼黏膜溃烂、意识改变、心跳持续很快 → 不等门诊，直接就医并带药盒。掰不掰以说明书与药师为准。</p>
+<!-- 降级 · M3：无剂量删规格、掰开两列；无 t½ 不画曲线。 -->
+</section>
+
+<section id="m4" class="mod" aria-labelledby="m4h">
+<h2 id="m4h">交互与待补检查清单</h2>
+<h3>交互预警（形状与文字同时表达）</h3>
+<ul class="ix">
+<li data-level=high data-src="说明书 CYP3A4（待核验）"><span class="sh" aria-hidden="true">■</span>
+<p><b>高 · 葡萄柚与部分药物共用 CYP3A4</b>，可能让血药浓度升高。问医生或药师：我这两个药走不走 CYP3A4？<b>停：</b>已同服并出现心慌、恶心、头晕加重 → 联系医生或药师，不要自行停药。</p></li>
+<li data-level=mid data-src="自述摄入时间"><span class="sh" aria-hidden="true">▲</span>
+<p><b>中 · 咖啡因与 08:00 服药、入睡困难可能叠加</b>。先试 3 天「12:00 后不喝咖啡」，只看入睡变化。<b>停：</b>心悸、胸闷持续 → 停止试验并就医。</p></li>
+</ul>
+<h3>待补检查清单</h3>
+<ul class="chk">
+<li><label><input type="checkbox"><span><b>甲功（TSH、FT4）</b>：排除甲状腺引起的乏力、低落与脑雾。<b>不等：</b>心悸、体重下降、手抖同时出现 → 提前就医。</span></label></li>
+<li><label><input type="checkbox"><span><b>血常规</b>：排除贫血导致的疲劳与注意力下降。<b>不等：</b>活动后气短、心悸、头晕加重。</span></label></li>
+</ul>
+<p class="muted">没有检验就写「未采集」，不画正常值参考带。</p>
+<!-- 降级 · M4：无暴露删交互预警；无检验缺口只留「该问医生什么」。 -->
+</section>
+
+<section id="m5" class="mod" aria-labelledby="m5h">
+<h2 id="m5h">患者行动卡 + 30 秒门诊卡</h2>
+<div class="disc">
+<h3>先说清楚这段是什么</h3>
+<ol>
+<li>基于说明书与公开证据的<b>整理与推测</b>，不是处方。</li>
+<li>我没看过你的化验、心电图与病历；只对现在这几种药成立。</li>
+<li>拿给开药医生复核；冲突时<b>以医生为准</b>。</li>
+<li>任一条即<b>停药并就医</b>：皮疹蔓延伴发热或黏膜溃烂；叫不醒；心跳很快伴胸痛晕厥；自伤念头从「闪过」变「有计划」。</li>
+</ol>
+</div>
+<h3>今天只做 3 件小事（做完就停）</h3>
+<ol>
+<li><b>固定起床时间，误差不超过 30 分钟，连做 3 天。</b>不补觉超过 1 小时。<b>停：</b>连续 2 晚不足 4 小时，或出现「不想活了」的念头 → 停止自我调整，联系医生或热线。</li>
+<li><b>药盒与处方拍照，记录 3 天实际服药时间。</b><b>停：</b>记不清就写「记不清」。</li>
+<li><b>写下门诊第一句话：</b>「我最近 ___ 周，最难受的是 ___。」<b>停：</b>写不出来就带打印件。</li>
+</ol>
+<article class="clinic" id="clinic-card" aria-labelledby="clh">
+<h3 id="clh">30 秒门诊卡</h3>
+<dl>
+<dt>主诉</dt><dd>近 6 周：早上起不来、白天脑雾、傍晚稍好；睡眠约 5.5 h。（示例）</dd>
+<dt>现在用药</dt><dd>艾司西酞普兰 10 mg 早 08:00；曲唑酮 50 mg 睡前 22:30（待核验）。</dd>
+<dt>最想问的 3 句</dt><dd><ol><li>晨重暮轻和服药时间有关吗？</li><li>以动力缺失为主，值不值得考虑 NE / DA？</li><li>先补哪项检查能改变下一步？</li></ol></dd>
+<dt>不要做</dt><dd>不自行加量、减量、停药或换药；带药盒来。</dd>
+</dl>
+</article>
+<div class="exp">
+<button type="button" class="btn" data-copy>复制门诊卡文字</button>
+<button type="button" class="btn" data-download>下载 .txt</button>
+<button type="button" class="btn" data-print>打印 / 存 PDF</button>
+<p class="muted">复制内容跟随语言层；失败时出现可手动选中的文本框，不用弹窗。</p>
+</div>
+<div class="fb" id="copy-fallback" hidden>
+<label for="copy-box"><b>自动复制失败，文字已选中：</b>按 Ctrl 或 Command 加 C 手动复制。</label>
+<textarea id="copy-box" rows="6" readonly></textarea>
+<button type="button" class="btn" id="copy-close">收起</button>
+</div>
+<!-- 降级 · M5：永远保留；数据再少也出「主诉 + 现在用药 + 想问什么」。 -->
+</section>
+
+<footer class="ft" id="page-footer">
+<p>生成日期：<span id="gen-date">2026 年 11 月 22 日 15:55</span> · 版本 <span id="report-version">2.2.1</span></p>
+<p><b>免责声明：</b>本报告是问诊信息整理，不是诊断或处方，不能替代急诊或面诊；用药以开药医生为准。标「待核验」的数值未核对原文。</p>
+<details>
+<summary>危机时先看这里：中国大陆 12356（心理援助）、400-161-9995（希望 24）、120（急救）</summary>
+<p>其他地区拨当地急救；身边有人就请对方陪着。</p>
+</details>
+</footer>
+<div class="pf" aria-hidden="true">
+<p>生成日期：<span id="print-gen-date">2026 年 11 月 22 日 15:55</span> · 版本 2.2.1 · 问诊整理报告模板</p>
+<p>本报告是问诊整理，不是诊断或处方；用药以面诊医生为准。</p>
+</div>
+</main>
+<div id="live" class="sr" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var R=window.__REPORT__=window.__REPORT__||{meta:{generated_at:"2026-11-22T15:55:00+08:00",version:"2.2.1",risk:"yellow"},patient:null,findings:[],pk:{drugs:[]},copy_text:""};
+var d=document,root=d.documentElement,K={theme:"ptp.theme",motion:"ptp.motion",font:"ptp.font",lang:"ptp.lang"};
+var live=d.getElementById("live"),motionOff=false,pkRef=null;
+function $(i){return d.getElementById(i);}
+function say(m){if(live){live.textContent="";setTimeout(function(){live.textContent=m;},30);}}
+function get(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function put(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+/* 01 主题：暗墨纸 / 暖棉纸 */
+var tb=d.querySelector("[data-theme-toggle]"),tl=d.querySelector("[data-theme-label]");
+function theme(t,save){
+root.setAttribute("data-theme",t);
+if(tl)tl.textContent=t==="dark"?"暗墨纸":"暖棉纸";
+if(tb)tb.setAttribute("aria-label","纸张主题："+(t==="dark"?"暗墨纸":"暖棉纸")+"；点击切换");
+if(save)put(K.theme,t);
+if(pkRef)pkRef.redraw();
+}
+var tp=get(K.theme);
+if(tp!=="dark"&&tp!=="light")tp=(window.matchMedia&&matchMedia("(prefers-color-scheme:light)").matches)?"light":"dark";
+theme(tp,false);
+if(tb)tb.addEventListener("click",function(){theme(root.getAttribute("data-theme")==="dark"?"light":"dark",true);});
+/* 02 静止护眼：冻结过渡、入场与 Canvas 重绘 */
+var mb=d.querySelector("[data-motion-toggle]");
+function motion(on,save){
+motionOff=on;root.setAttribute("data-motion",on?"off":"on");
+if(mb)mb.setAttribute("aria-pressed",on?"true":"false");
+if(on&&pkRef)pkRef.stop();
+if(save)put(K.motion,on?"on":"off");
+}
+var mp=get(K.motion),mq=window.matchMedia?matchMedia("(prefers-reduced-motion:reduce)"):null;
+motion(mp==="on"?true:(mp==="off"?false:!!(mq&&mq.matches)),false);
+if(mb)mb.addEventListener("click",function(){motion(!motionOff,true);});
+/* 03 A+ 大字号 */
+var fb2=d.querySelector("[data-font-toggle]");
+function font(on,save){root.classList.toggle("font-large",on);if(fb2)fb2.setAttribute("aria-pressed",on?"true":"false");if(save)put(K.font,on?"1":"0");if(pkRef)pkRef.redraw();}
+font(get(K.font)==="1",false);
+if(fb2)fb2.addEventListener("click",function(){font(!root.classList.contains("font-large"),true);});
+/* 04 医生版 / 患者版 */
+var lb=d.querySelectorAll("button[data-lang]");
+function lang(l,save){root.setAttribute("data-lang",l);for(var i=0;i<lb.length;i++)lb[i].setAttribute("aria-pressed",lb[i].getAttribute("data-lang")===l?"true":"false");if(save)put(K.lang,l);}
+lang(get(K.lang)==="clinician"?"clinician":"patient",false);
+for(var li=0;li<lb.length;li++)lb[li].addEventListener("click",function(){lang(this.getAttribute("data-lang"),true);});
+/* 05 风险灯号与日期 */
+(function(){
+var el=$("risk-lamp"),r=String(R.meta&&R.meta.risk||"");
+if(el&&/^(green|yellow|red)$/.test(r))el.setAttribute("data-risk",r);
+var m=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(String(R.meta&&R.meta.generated_at||""));
+var t=m?m[1]+" 年 "+m[2]+" 月 "+m[3]+" 日 "+m[4]+":"+m[5]:"生成日期待填",v=(R.meta&&R.meta.version)||"2.2.1",a;
+if((a=$("gen-date")))a.textContent=t;
+if((a=$("print-gen-date")))a.textContent=t;
+if((a=$("report-version")))a.textContent=v;
+})();
+/* 06 机制图谱三态：只切属性，不重排 DOM */
+var MT={overload:"当前过载态：感觉输入先被放大，启动通路被压住。这是描述体验，不是诊断。",relief:"某药显效态：一条通路拉回一点，其他仍过载。",target:"目标态：先稳睡眠节律，再谈第二条通路。"};
+var mf=$("map-figure"),mc=$("mcap"),mbs=d.querySelectorAll("[data-map]");
+function map(s){
+if(mf)mf.setAttribute("data-map-state",s);
+if(mc)mc.textContent=MT[s]||"";
+for(var i=0;i<mbs.length;i++)mbs[i].setAttribute("aria-pressed",mbs[i].getAttribute("data-map")===s?"true":"false");
+}
+for(var mi=0;mi<mbs.length;mi++)mbs[mi].addEventListener("click",function(){map(this.getAttribute("data-map"));});
+map("overload");
+/* 07 48h 一房室 Bateman 示意：仅拖动时 rAF；隐藏页/静止护眼停止 */
+var PK=(function(){
+var box=$("pk-model"),cv=$("pk-canvas");
+if(!box||!cv||!cv.getContext)return null;
+var ctx=cv.getContext("2d");if(!ctx)return null;
+var T0=8,S={t:12,ka:1.5,F:1,c:14,ready:false,drag:false},raf=0,pl=40,pr=8,pt=20,pb=22;
+var eT=$("pk-t"),eKa=$("pk-ka"),eF=$("pk-f"),eC=$("pk-c"),oT=$("pk-to"),oKa=$("pk-kao"),oF=$("pk-fo"),oC=$("pk-co"),ro=$("pk-readout"),pkp=$("pk-peak");
+function k(){return Math.LN2/S.t;}
+function sh(dt,k2,ka){if(dt<=0)return 0;if(Math.abs(ka-k2)<1e-4)return k2*dt*Math.exp(-k2*dt);return ka/(ka-k2)*(Math.exp(-k2*dt)-Math.exp(-ka*dt));}
+function pkU(){var k2=k(),b=0,i,v;for(i=0;i<=2880;i++){v=sh(i/60,k2,S.ka);if(v>b)b=v;}return b||1;}
+function rel(h){return h<=T0?0:sh(h-T0,k(),S.ka)/pkU();}
+function draw(){
+if(!S.ready)return;
+var w=cv.clientWidth||320,h=cv.clientHeight||240,dpr=Math.min(window.devicePixelRatio||1,2),g,gy,gx,i;
+if(cv.width!==Math.round(w*dpr)||cv.height!==Math.round(h*dpr)){cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);}
+ctx.setTransform(dpr,0,0,dpr,0,0);
+var cs=getComputedStyle(cv),tok=function(n,f){return (cs.getPropertyValue(n)||f).trim();};
+var bg=tok("--bg-surface","#1a1d22"),gd=tok("--border-hairline","#333"),ink=tok("--ink-muted","#777"),ln=tok("--pigment-slate","#8ca4cf"),bd=tok("--pigment-teal","#6ab5a6"),wn=tok("--pigment-amber","#d9a554");
+var pw=Math.max(40,w-pl-pr),ph=Math.max(40,h-pt-pb);
+ctx.clearRect(0,0,w,h);ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+ctx.strokeStyle=gd;ctx.lineWidth=1;
+for(g=0;g<=4;g++){gy=Math.round(pt+ph*g/4)+.5;ctx.beginPath();ctx.moveTo(pl,gy);ctx.lineTo(w-pr,gy);ctx.stroke();gx=Math.round(pl+pw*g/4)+.5;ctx.beginPath();ctx.moveTo(gx,pt);ctx.lineTo(gx,pt+ph);ctx.stroke();}
+ctx.fillStyle=bd;ctx.globalAlpha=.13;ctx.fillRect(pl,pt+ph*.3,pw,ph*.4);ctx.globalAlpha=1;
+var pk=pkU(),hh,v,x,y,on=false;
+ctx.beginPath();
+for(i=0;i<=2880;i++){hh=i/60;v=hh<=T0?0:S.F*sh(hh-T0,k(),S.ka)/pk;x=pl+pw*hh/48;y=pt+ph*(1-Math.min(v,1));if(!on){ctx.moveTo(x,y);on=true;}else ctx.lineTo(x,y);}
+ctx.strokeStyle=ln;ctx.lineWidth=2;ctx.lineJoin="round";ctx.stroke();
+var cx=Math.round(pl+pw*S.c/48)+.5,vc=S.F*rel(S.c),cy=pt+ph*(1-Math.min(vc,1));
+ctx.strokeStyle=wn;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(cx,pt);ctx.lineTo(cx,pt+ph);ctx.stroke();
+ctx.fillStyle=bg;ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,3.5,0,Math.PI*2);ctx.fill();ctx.stroke();
+ctx.fillStyle=ink;ctx.font="11px "+(cs.fontFamily||"system-ui");
+ctx.textAlign="right";ctx.fillText("1.0",pl-6,pt+4);ctx.fillText("0.5",pl-6,pt+ph/2+4);ctx.fillText("0",pl-6,pt+ph+4);
+ctx.textAlign="center";for(i=0;i<=4;i++)ctx.fillText(String(i*12),pl+pw*i/4,h-6);
+ctx.textAlign="left";ctx.fillText("相对浓度（峰值 = 1.0）",pl,pt-6);
+if(ro)ro.textContent="游标 "+S.c.toFixed(1)+" h｜相对浓度 "+vc.toFixed(2)+"（峰值的 "+Math.round(vc/(S.F||1)*100)+"%）";
+if(oC)oC.textContent=S.c.toFixed(1)+" h";
+if(pkp)pkp.textContent=(Math.abs(S.ka-k())<1e-4?T0+1/k():T0+Math.log(S.ka/k())/(S.ka-k())).toFixed(1);
+}
+function sched(){if(motionOff){draw();return;}if(raf)return;raf=requestAnimationFrame(function(){raf=0;draw();});}
+function sync(){
+if(eT){S.t=parseFloat(eT.value)||12;if(oT)oT.textContent=S.t.toFixed(1)+" h";}
+if(eKa){S.ka=parseFloat(eKa.value)||1.5;if(oKa)oKa.textContent=S.ka.toFixed(1)+" /h";}
+if(eF){S.F=parseFloat(eF.value)||1;if(oF)oF.textContent=Math.round(S.F*100)+"%";}
+}
+if(eT)eT.addEventListener("input",function(){sync();sched();});
+if(eKa)eKa.addEventListener("input",function(){sync();sched();});
+if(eF)eF.addEventListener("input",function(){sync();sched();});
+if(eC)eC.addEventListener("input",function(){S.c=parseFloat(eC.value)||0;sched();});
+function hour(ev){var r=cv.getBoundingClientRect(),pw=cv.clientWidth-pl-pr||1;return Math.max(0,Math.min(48,(ev.clientX-r.left-pl)/pw*48));}
+function setC(h){S.c=Math.max(0,Math.min(48,h));if(eC)eC.value=String(S.c);sched();}
+cv.addEventListener("pointerdown",function(ev){if(!S.ready)return;S.drag=true;try{cv.setPointerCapture(ev.pointerId);}catch(e){}setC(hour(ev));ev.preventDefault();});
+cv.addEventListener("pointermove",function(ev){if(S.drag)setC(hour(ev));});
+function end(ev){S.drag=false;try{cv.releasePointerCapture(ev.pointerId);}catch(e){}}
+cv.addEventListener("pointerup",end);cv.addEventListener("pointercancel",end);
+d.addEventListener("visibilitychange",function(){if(d.hidden)stop();else if(S.ready)draw();});
+function stop(){if(raf){cancelAnimationFrame(raf);raf=0;}}
+return{open:function(){box.hidden=false;S.ready=true;sync();if(eC)eC.value=String(S.c);draw();},stop:stop,redraw:function(){if(S.ready)draw();}};
+})();
+pkRef=PK;
+var pd=$("pk-demo");
+if(pd&&PK)pd.addEventListener("click",function(){
+var o=pd.getAttribute("aria-expanded")==="true";
+pd.setAttribute("aria-expanded",o?"false":"true");
+pd.textContent=o?"查看示意曲线（演示，不含你的药名与剂量）":"收起示意曲线";
+$("pk-model").hidden=o;
+if(o)PK.stop();else PK.open();
+});
+/* 08 复制 / 下载 / 打印：不用 alert 与 confirm */
+function text(){
+if(R.copy_text)return R.copy_text;
+var c=$("clinic-card");
+return c?c.innerText.replace(/\n{3,}/g,"\n\n").replace(/[ \t]+\n/g,"\n").trim():"";
+}
+var fb=$("copy-fallback"),cb=$("copy-box");
+function fbShow(t){if(!fb||!cb)return;cb.value=t;fb.hidden=false;cb.focus();cb.select();say("自动复制失败，文字已选中，请手动复制");}
+function copy(){
+var t=text();if(!t){say("没有可复制的文字");return;}
+if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(function(){say("已复制门诊卡文字");}).catch(function(){fbShow(t);});
+else fbShow(t);
+}
+function dl(){
+var t=text();if(!t){say("没有可导出的文字");return;}
+var blob=new Blob([t],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=d.createElement("a");
+a.href=url;a.download="psych-triage-report.txt";d.body.appendChild(a);a.click();d.body.removeChild(a);
+setTimeout(function(){URL.revokeObjectURL(url);},1200);say("已生成 txt 文件");
+}
+function pr(){var x=d.querySelectorAll("details"),i;for(i=0;i<x.length;i++)x[i].open=true;window.print();}
+d.addEventListener("click",function(e){
+var t=e.target;
+if(!t||!t.closest)return;
+if(t.closest("[data-copy]"))copy();
+else if(t.closest("[data-download]"))dl();
+else if(t.closest("[data-print]"))pr();
+});
+window.addEventListener("beforeprint",function(){var x=d.querySelectorAll("details"),k2;for(k2=0;k2<x.length;k2++)x[k2].open=true;});
+var cc=$("copy-close");if(cc)cc.addEventListener("click",function(){fb.hidden=true;});
+if(cb)cb.addEventListener("keydown",function(e){if(e.key==="Escape")fb.hidden=true;});
+})();
+</script>
+</body>
+</html>
