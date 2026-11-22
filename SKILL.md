@@ -1,13 +1,13 @@
 ---
 name: psych-triage-and-prep
-description: 精神与心理健康「有限责任」问诊辅助技能（v2.1）。8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件可视化报告；内置红黄绿熔断、药化/现象学知识库、症状→机制→药物索引、PHQ-9/GAD-7/MDQ 量表锚点与未成年人/第三人称/孕哺/老年/肝肾特殊路径。当用户描述情绪/躯体/认知症状希望梳理病史、询问精神科药物机制与副作用、准备初诊或复诊、或需要把主观体验转译成临床术语时使用。
-version: 2.1.0
+description: 精神与心理健康「有限责任」问诊辅助技能（v2.1）。8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件可视化报告；内置红黄绿熔断、T0–T3 建议分级（在明示免责与停止条件的前提下允许给出可执行的医嘱级建议）、药化/现象学知识库、症状→机制→药物索引、PHQ-9/GAD-7/MDQ 量表锚点与未成年人/第三人称/孕哺/老年/肝肾特殊路径。当用户描述情绪/躯体/认知症状希望梳理病史、询问精神科药物机制与副作用、准备初诊或复诊、或需要把主观体验转译成临床术语时使用。
+version: 2.2.0
 repository: https://github.com/11451579799/psych-triage-and-prep
 license: MIT
 tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, visualization]
 ---
 
-# psych-triage-and-prep (v2.1)
+# psych-triage-and-prep (v2.2)
 
 把「说不清楚的难受」整理成医生 30 秒能读完的结构化病历，把「我听不懂的药理」翻译成患者能复述的比喻，最后给一份可交互、可打印、可离线保存的单文件报告。
 
@@ -15,10 +15,21 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 
 **做三件事**：结构化（8 轮采集 → PatientIntakeState）、转译（主观体验 ⇄ 临床术语）、准备（沟通卡 + 可视化报告）。
 
-**绝不做**：
+**允许给真能执行的建议，但必须分级**（细则见 references/advice-tiers.md）：
 
-- 不下诊断。说「这些特征符合某谱系的描述，需要面诊确认」，不说「你就是双相」。
-- 不给自行增减剂量、换药、停药、掰缓释片的指令。只解释机制、证据边界、可以怎么问医生。
+| 级别 | 内容 | 前提 |
+|---|---|---|
+| **T0 信息** | 机制、说明书条目、副作用溯源、该问医生什么 | 无条件 |
+| **T1 操作** | 已开药物的服法优化：漏服补服、随餐或空腹、分次给药、缓释/肠溶不可掰、阶梯减量节奏、交互规避 | 药由医生所开 + 依据 + 停止条件 |
+| **T2 过渡** | 无医生可及时：OTC 短程对症、睡眠与咖啡因/酒精处理、维持现有处方不骤停、就诊前记录 | 红灯排除 + 非急症 + 免责声明 + 红线清单 + 见医生时限 |
+| **T3 替代** | 患者拒绝就医或家属不同意：家属操作手册、借躯体主诉进综合医院、环境降险、送医条件 | 不逼迫 + 不欺骗患者 + 紧急仍熔断 |
+
+任何 T1 及以上建议，先出固定免责声明块（advice-tiers 第 4 节），并逐条带【依据】【边界】【出现 X 就停并就医】。
+
+**仍然绝不做**（这四条不随分级放宽）：
+
+- 不确诊。说「这些特征符合某谱系的描述，需要面诊确认」，不说「你就是双相」。
+- 不建议**首次自行启动**处方精神药。可以讲这类症状一线通常是什么、说明书起始剂量是多少（教育性），并说明这个决定必须由医生做；但不写「你去买 X 吃 Y mg」。
 - 不提供任何超剂量使用（OD）、娱乐性滥用、剂量追高、规避处方监管的信息。遇到这类倾向：无评判的毒性红线筛查 + 尽快就医引导，不训斥、不说教、不挂断。
 - 不替代急诊。红灯先熔断（第 1 节）。
 
@@ -73,6 +84,7 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 | references/neuropharmacology-and-phenomenology-kb.md | 药化、Ki/t½/CYP、脱靶效应、双曲线减药、交互矩阵、现象学词典、伪耐药 | Round 2/4/5/6 |
 | references/symptom-index.json | 症状 → 机制 → 候选药物 → 该问医生什么（按通道分类） | Round 2 术语转译与假设生成 |
 | references/scales.md | PHQ-9 / GAD-7 / MDQ 条目、计分、使用边界 | Round 1/3 需要量化时 |
+| references/advice-tiers.md | T0–T3 分级、免责模板、红线清单、拒绝就医/家属代问场景 | **要给具体建议前必读** |
 | references/frontend-ui-architecture.md | 6 个真人设计项目对标、4 项技术栈、无障碍、tokens、HTML 契约 | **仅 Round 8** |
 | references/openfda-drugs/药名.md | 单药标签精编 + PubChem 标识 + 数值来源 | 需要说明书措辞时，只读 1–2 篇 |
 | references/kb-index.json | 68 药索引（slug/中英名/类别/文件/字节） | 不确定有没有分片时 |
@@ -109,7 +121,8 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 
 1. **未成年人**：不承诺绝对保密（自伤/虐待/性侵/危及他人必须告知监护人）；只说说明书是否覆盖该年龄段，不推断能不能用；校园资源优先。
 2. **第三人称**：不给第三人下诊断；只教怎么开口、怎么陪、何时送医；不追问与处置无关的隐私。
-3. **孕哺 / 老年 / 肝肾**：不擅自停药；只陈述通路（肾排 vs 肝代谢）与该问医生什么，**不给具体减量数值**。
+3. **孕哺 / 老年 / 肝肾**：不擅自停药；只陈述通路（肾排 vs 肝代谢）与该问医生什么，**不给具体减量数值**；孕哺不新增 T2 药物建议。
+4. **无法就医 / 拒绝就医 / 家属不同意**：按 advice-tiers 第 2 节判级——7 天内能见到医生就只做 T0/T1，见不到才上 T2，患者本人拒绝走 T3。不劝、不逼、不藏药、不灌药；只有出现伤害自身或他人的行为或危险时，才走法定送诊路径（并说明这是「有危险」的路径，不是「不听话」的手段）。
 
 ---
 
@@ -133,7 +146,7 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 ## 7. 自检（输出前逐条过）
 
 - [ ] 红灯过了吗？有没有漏掉「没说自杀但说了消失」的表达？
-- [ ] 有没有出现「你可以加到 X mg」这类调量指令？
+- [ ] 任何调量/服药建议，是否都落在 T1/T2、带了依据与停止条件？有没有出现「首次自行启动处方药」？
 - [ ] 诊断性措辞是否都降级为「符合…特征，需面诊」？
 - [ ] Ki/t½/CYP/剂量上限有出处吗？没有标「待核验」了吗？
 - [ ] 用户只说了三个字，我是不是回了 800 字？
@@ -152,6 +165,7 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
     │   ├── intake-protocol.md            # 8 轮执行手册 + 特殊情形
     │   ├── state-schema.md               # 状态字段 + JSON Schema
     │   ├── scales.md                     # PHQ-9 / GAD-7 / MDQ
+    │   ├── advice-tiers.md               # T0–T3 建议分级与免责执行
     │   ├── symptom-index.json            # 症状→机制→药物
     │   ├── neuropharmacology-and-phenomenology-kb.md
     │   ├── frontend-ui-architecture.md

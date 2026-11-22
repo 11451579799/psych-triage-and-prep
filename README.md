@@ -1,4 +1,4 @@
-# psych-triage-and-prep（v2.1）
+# psych-triage-and-prep（v2.2）
 
 > 精神与心理健康「有限责任」问诊辅助技能：**8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件交互式报告**。
 > 跨 Agent 框架可用（Harness-agnostic）：Claude Code / Codex / Cursor / DeepSeek Harness 等能读取仓库内 Markdown 技能的宿主均可加载。
@@ -14,7 +14,9 @@
 
 ## 边界（不可协商）
 
-- **不下诊断**，不替代执业精神科医师，不给自行增减剂量或骤然停药的操作指令。
+- **不下诊断**，不替代执业精神科医师。不写「你就是双相」。
+- **但允许给能执行的建议**，分四级：T0 信息（机制与说明书）、T1 操作（已开药物的服法优化、漏服补服、阶梯减量节奏、交互规避）、T2 过渡（见不到医生时的 OTC 短程对症与不减害处理）、T3 替代路径（患者拒绝就医时家属能做什么）。每条建议带依据、停止条件与固定免责声明，见 [advice-tiers.md](references/advice-tiers.md)。
+- **不写**「首次自行启动处方药」的剂量方案（可以讲一线是什么、说明书起始剂量是多少，但决定权在医生）。
 - **不收录、不生成**任何超剂量使用（OD）、娱乐性滥用、剂量追高或规避处方监管的内容。
 - 命中急性危机或中毒综合征（自杀计划/自伤、5-羟色胺综合征、NMS、SJS/TEN、锂中毒等）时**立即中止问诊**，置顶急诊指引与当地热线。
 
@@ -25,6 +27,7 @@
       intake-protocol.md                      # 8 轮逐轮话术 + Fast-Track + 特殊情形 + 输出模板
       state-schema.md                         # PatientIntakeState + JSON Schema + 校验纪律
       scales.md                               # PHQ-9 / GAD-7 / MDQ 条目、计分、边界
+      advice-tiers.md                         # T0–T3 建议分级、免责模板、红线、拒绝就医场景
       symptom-index.json                      # 症状→通道→机制→候选方向→红线（38 条）
       neuropharmacology-and-phenomenology-kb.md  # 药化、PK/PD、CYP450、现象学词典
       frontend-ui-architecture.md             # 真人设计对标 + Round 8 UI 契约
