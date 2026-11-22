@@ -1,0 +1,96 @@
+# acamprosate · 阿坎酸
+
+> 数据来源：OpenFDA Drug Labeling API + PubChem PUG-REST ｜ 拉取时间：2026-11-22T16:38:06+08:00
+> 用途：症状-药物机制核对、副作用溯源、门诊沟通准备。**不得**作为自行调量、停药或超剂量使用的依据。
+
+## 速览
+
+| 项 | 值 |
+|---|---|
+| 通用名 (INN) | acamprosate |
+| 中文名 | 阿坎酸 |
+| 类别 / 机制 | 谷氨酸系统调节 |
+| 关键靶点 | NMDA 调节 / 钙通道 |
+| 消除半衰期 | 20–33 h（给药 TID） |
+| CYP450 / 代谢 | 肾原型排泄 |
+
+## 数值来源与口径
+
+| 项目 | 来源 | 口径 |
+|---|---|---|
+| 适应症 / 剂量 / 禁忌 / 警告 / 不良反应 / 相互作用 | 本文下方 FDA 标签原样节选 | 美国标签；地区剂型与获批适应症可能不同，需查 NMPA |
+| 消除半衰期 / CYP 通路 | FDA 标签 Clinical Pharmacology、Drug Interactions 章节 | 群体均值，个体差异可达数倍 |
+| Ki（受体亲和力） | 文献近似值（PDSP / BindingDB 类数据集整理） | 仅作量级参考，非本药实测值 |
+| 化学标识 | PubChem PUG-REST | 查询时点快照 |
+
+> 任何数值都不构成剂量依据；调量必须由处方医师决定。
+
+## 精选临床要点（人工精编，非说明书原文）
+
+酒精依赖维持期用药；肾功能不全需减量；起效需数周，不用于急性戒断。
+
+## 化学标识（PubChem）
+
+| 属性 | 值 |
+|---|---|
+| PubChem CID | 71158 |
+| 分子式 | C5H11NO4S |
+| 分子量 | 181.21 |
+| IUPAC 名 | 3-acetamidopropane-1-sulfonic acid |
+| XLogP | -1.2 |
+| 氢键供体 | 2 |
+| 氢键受体 | 4 |
+| 拓扑极性表面积 | 91.9 |
+
+SMILES 可用于结构核对与教学演示；不用于任何合成或改造目的。
+
+## 适应症与用途
+
+1 INDICATIONS AND USAGE Acamprosate calcium delayed-release tablets are indicated for the maintenance of abstinence from alcohol in patients with alcohol dependence who are abstinent at treatment initiation. Treatment with acamprosate calcium delayed-release tablets should be part of a comprehensive management program that includes psychosocial support. The efficacy of acamprosate calcium delayed-release tablets in promoting abstinence has not been demonstrated in subjects who have not undergone detoxification and not achieved alcohol abstinence prior to beginning acamprosate calcium delayed-release tablets treatment. The efficacy of acamprosate calcium delayed-release tablets in promoting abstinence from alcohol in polysubstance abusers has not been adequately assessed. Acamprosate calcium delayed-release tablets are indicated for the maintenance of abstinence from alcohol in patients with alcohol dependence who are abstinent at treatment initiation ( 1 , 14 ). Treatment with acamprosate calcium delayed-release tablets should be part of a comprehensive management program that includes psychosocial support ( 1 ).
+
+## 剂量与给药
+
+2 DOSAGE AND ADMINISTRATION The recommended dose of acamprosate calcium delayed-release tablets is two 333 mg tablets (each dose should total 666 mg) taken three times daily. A lower dose may be effective in some patients. Although dosing may be done without regard to meals, dosing with meals was employed during clinical trials and is suggested in those patients who regularly eat three meals daily. Treatment with acamprosate calcium delayed-release tablets should be initiated as soon as possible after the period of alcohol withdrawal, when the patient has achieved abstinence, and should be maintained if the patient relapses. Acamprosate calcium delayed-release tablets should be used as part of a comprehensive psychosocial treatment program. Recommended dose: 666 mg (two 333 mg tablets) taken three times daily ( 2 ). Dose reduction to one 333 mg tablet taken three times daily for patients with moderate renal impairment (creatinine clearance 30 mL/min to 50 mL/min) ( 2.1 ). Acamprosate calcium delayed-release tablets are contraindicated in patients with severe renal impairment (creatinine clearance of ≤30 mL/min) ( 2.1 , 4.2 , 5.1 , 8.6 , 12.3 ). 2.1 Dosage in Renal Impairment For patients with moderate renal impairment (creatinine clearance of 30 mL/min to 50 mL/min), a starting dose of one 333 mg tablet taken three times daily is recommended. Acamprosate calcium delayed-release tablets are contraindicated in patients with severe renal impairment (creatinine clearance of ≤ 30 mL/min) [see Contraindications (4.2) , Warnings and Precautions (5.1) , Use in Specific Populations (8.6) , and Clinical Pharmacology (12.3) ] .
+
+## 剂型与规格
+
+3 DOSAGE FORMS AND STRENGTHS Acamprosate calcium delayed-release tablets, 333 mg are white to off-white, round, biconvex, enteric coated tablets, imprinted with “C” on one side with black ink and plain on other side, free from physical defects. Enteric-coated tablets, 333 mg ( 3 ).
+
+## 禁忌
+
+4 CONTRAINDICATIONS Acamprosate calcium is contraindicated in patients who previously have exhibited hypersensitivity to acamprosate calcium or any of its components ( 4.1 ). Acamprosate calcium is contraindicated in patients with severe renal impairment ( 4.2 ). 4.1 Hypersensitivity to Acamprosate Calcium Acamprosate calcium is contraindicated in patients who previously have exhibited hypersensitivity to acamprosate calcium or any of its components. 4.2 Severe Renal Impairment Acamprosate calcium is contraindicated in patients with severe renal impairment (creatinine clearance of ≤ 30 mL/min) [see Dosage and Administration (2.1) , Warnings and Precautions (5.1) , Use in Specific Populations (8.6) , and Clinical Pharmacology (12.3) ] .
+
+## 警告与注意事项
+
+5 WARNINGS AND PRECAUTIONS Dose reduction is required for patients with moderate renal impairment ( 5.1 ). Monitor patients for depression or suicidal ideation and prompt patients, families, and caregivers to report such symptoms to the health care provider ( 5.2 ). 5.1 Renal Impairment Treatment with acamprosate calcium in patients with moderate renal impairment (creatinine clearance of 30 mL/min to 50 mL/min) requires a dose reduction [see Dosage and Administration (2.1) ] . Acamprosate calcium is contraindicated in patients with severe renal impairment (creatinine clearance of ≤ 30 mL/min) [see Dosage and Administration (2.1) , Contraindications (4.2) , Use in Specific Populations (8.6) , and Clinical Pharmacology (12.3) ]. 5.2 Suicidality and Depression In controlled clinical trials of acamprosate calcium, adverse events of a suicidal nature (suicidal ideation, suicide attempts, completed suicides) were infrequent overall, but were more common in acamprosate calcium-treated patients than in patients treated with placebo (1.4% vs. 0.5% in studies of 6 months or less; 2.4% vs. 0.8% in year-long studies). Completed suicides occurred in 3 of 2,272 (0.13%) patients in the pooled acamprosate group from all controlled studies and 2 of 1,962 patients (0.10%) in the placebo group. Adverse events coded as "depression" were reported at similar rates in acamprosate calcium-treated and placebo-treated patients. Although many of these events occurred in the context of alcohol relapse, and the interrelationship between alcohol dependence, depression and suicidality is well-recognized and complex, no consistent pattern of relationship between the clinical course of recovery from alcoholism and the emergence of suicidality was identified. Alcohol-dependent patients, including those patients being treated with acamprosate calcium, should be monitored for the development of symptoms of depression or suicidal thinking. Families and caregivers of patients being treated with acamprosate calcium should be alerted to the need to monitor patients for the emergence of symptoms of depression or suicidality, and to report such symptoms to the patient's health care provider. 5.3 Alcohol Withdrawal Use of acamprosate calcium does not eliminate or diminish withdrawal symptoms.
+
+## 不良反应
+
+6 ADVERSE REACTIONS Common adverse events that occurred in any acamprosate calcium treatment group at a rate of 3% or greater and greater than the placebo group in controlled clinical trials with spontaneously reported adverse events are: accidental injury, asthenia, pain, anorexia, diarrhea, flatulence, nausea, anxiety, depression, dizziness, dry mouth, insomnia, paresthesia, pruritus and sweating ( 6.1 ). To report SUSPECTED ADVERSE REACTIONS, contact Bionpharma Inc. at 1-888-235-BION or FDA at 1-800-FDA-1088 or www.fda.gov/medwatch. 6.1 Clinical Trials Experience Because clinical trials are conducted under widely varying conditions, adverse reaction rates observed in the clinical trials of a drug cannot be directly compared to rates in the clinical trials of another drug and may not reflect the rates observed in clinical practice. Clinically significant serious adverse reactions associated with acamprosate calcium described elsewhere in labeling include suicidality and depression and acute kidney failure [see Warnings and Precautions (5.2) , and Adverse Reactions (6.2) ] . The adverse event data described below reflect the safety experience in over 7,000 patients exposed to acamprosate calcium for up to one year, including over 2,000 acamprosate calcium-exposed patients who participated in placebo-controlled trials. Adverse Events Leading to Discontinuation In placebo-controlled trials of 6 months or less, 8% of acamprosate calcium-treated patients discontinued treatment due to an adverse event, as compared to 6% of patients treated with placebo. In studies longer than 6 months, the discontinuation rate due to adverse events was 7% in both the placebo-treated and the acamprosate calcium-treated patients. Only diarrhea was associated with the discontinuation of more than 1% of patients (2% of acamprosate calcium-treated vs. 0.7% of placebo-treated patients). Other events, including nausea, depression, and anxiety, while accounting for discontinuation in less than 1% of patients, were nevertheless more commonly cited in association with discontinuation in acamprosate calcium-treated patients than in placebo-treated patients. Common Adverse Events Reported in Controlled Trials Common adverse events were collected spontaneously in some controlled studies and using a checklist in other studies. The overall profile of adverse events was similar using either method. Table 1 shows those events that occurred in any acamprosate calcium treatment group at a rate of 3% or greater and greater than the placebo group in controlled clinical trials with spontaneously reported adverse events. The reported frequencies of adverse events represent the proportion of individuals who experienced, at least once, a treatment-emergent adverse event of the type listed, without regard to the causal relationship of the events to the drug. Table 1. Events Occurring at a Rate of at Least 3% and Greater than Placebo in any Acamprosate Calcium Treatment Group in Controlled Clinical Trials with Spontaneously Reported Adverse Events. Body System/Preferred Term Number of Patients (%) with Events Acamprosate Calcium 1,332 mg/day Acamprosate Calcium 1,998 mg/day includes 258 patients treated with acamprosate calcium 2,000 mg/day, using a different dosage strength and regimen. Acamprosate Calcium Pooled includes all patients in the first two columns as well as 83 patients treated with acamprosate calcium 3,000 mg/day, using a different dosage strength and regimen. …（节选，完整文本见来源链接）
+
+## 药物相互作用
+
+7 DRUG INTERACTIONS Acamprosate does not affect the pharmacokinetics of alcohol. The pharmacokinetics of acamprosate are not affected by alcohol, diazepam, or disulfiram, and clinically important interactions between naltrexone and acamprosate were not observed [see Clinical Pharmacology (12.3) ] .
+
+## 特殊人群用药
+
+8 USE IN SPECIFIC POPULATIONS Pregnancy: Acamprosate calcium should be used during pregnancy only if the potential benefit justifies the potential risk to the fetus ( 8.1 ). Nursing Mothers: Caution should be exercised when acamprosate calcium is administered to a nursing woman ( 8.3 ). Renal Impairment: Dose reduction required for moderate renal impairment; contraindicated in severe renal impairment ( 2.1 , 4.2 , 5.1 , 8.6 , 12.3 ) 8.1 Pregnancy Pregnancy Category C Teratogenic effects: Acamprosate calcium has been shown to be teratogenic in rats when given in doses that are approximately equal to the human dose (on a mg/m 2 basis) and in rabbits when given in doses that are approximately 3 times the human dose (on a mg/m 2 basis). Acamprosate calcium produced a dose-related increase in the number of fetuses with malformations in rats at oral doses of 300 mg/kg/day or greater (approximately equal to the maximum recommended human daily (MRHD) oral dose on a mg/m 2 basis). The malformations included hydronephrosis, malformed iris, retinal dysplasia, and retroesophageal subclavian artery. No findings were observed at an oral dose of 50 mg/kg/day (approximately one-fifth the MRHD oral dose on a mg/m 2 basis). An increased incidence of hydronephrosis was also noted in Burgundy Tawny rabbits at oral doses of 400 mg/kg/day or greater (approximately 3 times the MRHD oral dose on a mg/m 2 basis). No developmental effects were observed in New Zealand white rabbits at oral doses up to 1,000 mg/kg/day (approximately 8 times the MRHD oral dose on a mg/m 2 basis). The findings in animals should be considered in relation to known adverse developmental effects of ethyl alcohol, which include the characteristics of fetal alcohol syndrome (craniofacial dysmorphism, intrauterine and postnatal growth retardation, retarded psychomotor and intellectual development) and milder forms of neurological and behavioral disorders in humans. There are no adequate and well controlled studies in pregnant women. Acamprosate calcium should be used during pregnancy only if the potential benefit justifies the potential risk to the fetus. …（节选，完整文本见来源链接）
+
+## 过量表现（仅用于识别中毒征象，不构成处理指导）
+
+10 OVERDOSAGE In all reported cases of acute overdosage with acamprosate calcium (total reported doses of up to 56 grams of acamprosate calcium), the only symptom that could be reasonably associated with acamprosate calcium was diarrhea. Hypercalcemia has not been reported in cases of acute overdose. A risk of hypercalcemia should be considered in chronic overdosage only. Treatment of overdose should be symptomatic and supportive.
+
+## 化学描述
+
+11 DESCRIPTION Acamprosate calcium delayed-release tablets are supplied as an enteric-coated tablet for oral administration. Acamprosate calcium is a synthetic compound with a chemical structure similar to that of the endogenous amino acid homotaurine, which is a structural analogue of the amino acid neurotransmitter γ-aminobutyric acid and the amino acid neuromodulator taurine. Its chemical name is calcium acetylaminopropane sulfonate. Its chemical formula is C 10 H 20 N 2 O 8 S 2 Ca and molecular weight is 400.48 g/mol. Its structural formula is: Acamprosate calcium, USP is white or almost white powder. It is freely soluble in water, practically insoluble in alcohol and in methylene chloride. Each acamprosate calcium delayed-release tablet contains acamprosate calcium, USP 333 mg, equivalent to 300 mg of acamprosate. Inactive ingredients in acamprosate calcium delayed-release tablets include: colloidal silicon dioxide, crospovidone, magnesium silicate, magnesium stearate, methacrylic acid and ethyl acrylate copolymer dispersion, microcrystalline cellulose, povidone, propylene glycol, sodium starch glycolate, and talc. In addition, the black imprinting ink for the tablets contains ammonium hydroxide, black iron oxide, propylene glycol and shellac glaze. Sulfites were used in the synthesis of the drug substance and traces of residual sulfites may be present in the drug product. Structure.jpg
+
+## 临床药理学（含 PK/PD）
+
+12 CLINICAL PHARMACOLOGY 12.1 Mechanism of Action The mechanism of action of acamprosate in maintenance of alcohol abstinence is not completely understood. Chronic alcohol exposure is hypothesized to alter the normal balance between neuronal excitation and inhibition. In vitro and in vivo studies in animals have provided evidence to suggest acamprosate may interact with glutamate and GABA neurotransmitter systems centrally, and has led to the hypothesis that acamprosate restores this balance. 12.2 Pharmacodynamics Pharmacodynamic studies have shown that acamprosate calcium reduces alcohol intake in alcohol-dependent animals in a dose-dependent manner and that this effect appears to be specific to alcohol and the mechanisms of alcohol dependence. Acamprosate calcium has negligible observable central nervous system (CNS) activity in animals outside of its effects on alcohol dependence, exhibiting no anticonvulsant, antidepressant, or anxiolytic activity. The administration of acamprosate calcium is not associated with the development of tolerance or dependence in animal studies. Acamprosate calcium did not produce any evidence of withdrawal symptoms in patients in clinical trials at therapeutic doses. Post marketing data, collected retrospectively outside the U.S. have provided no evidence of acamprosate calcium abuse or dependence. Acamprosate calcium is not known to cause alcohol aversion and does not cause a disulfiram-like reaction as a result of ethanol ingestion. 12.3 Pharmacokinetics Absorption The absolute bioavailability of acamprosate calcium after oral administration is about 11%. Steady-state plasma concentrations of acamprosate are reached within 5 days of dosing. Steady-state peak plasma concentrations after acamprosate calcium doses of 2 x 333 mg tablets three times daily average 350 ng/mL and occur at 3 hours to 8 hours post-dose. Coadministration of acamprosate calcium with food decreases bioavailability as measured by C max and AUC, by approximately 42% and 23%, respectively. The food effect on absorption is not clinically significant and no adjustment of dose is necessary. Distribution The volume of distribution for acamprosate following intravenous administration is estimated to be 72 liters to 109 liters (approximately 1 L/kg) . Plasma protein binding of acamprosate is negligible. Metabolism Acamprosate does not undergo metabolism. Elimination After oral dosing of 2 x 333 mg of acamprosate calcium, the terminal half-life ranges from approximately 20 hours to 33 hours. Following oral administration of acamprosate calcium, the major route of excretion is via the kidneys as acamprosate. Special Populations Gender: Acamprosate calcium does not exhibit any significant pharmacokinetic differences between male and female subjects. Age: The pharmacokinetics of acamprosate calcium have not been evaluated in a geriatric population. However, since renal function diminishes in elderly patients and acamprosate is excreted unchanged in urine, acamprosate plasma concentrations are likely to be higher in the elderly population compared to younger adults. Pediatrics: The pharmacokinetics of acamprosate calcium have not been evaluated in a pediatric population. Renal Impairment: Peak plasma concentrations after administration of a single dose of 2 x 333 mg acamprosate calcium delayed-release tablets to patients with moderate or severe renal impairment were about 2-fold and 4-fold higher, respectively, compared to healthy subjects. Similarly, elimination half-life was about 1.8-fold and 2.6-fold longer, respectively, compared to healthy subjects. There is a linear relationship between creatinine clearance values and total apparent plasma clearance, renal clearance and plasma half-life of acamprosate. A dose of 1 x 333 mg acamprosate calcium, three times daily, is recommended in patients with moderate renal impairment (creatinine clearance of 30 mL/min to 50 mL/min) [see Use in Specific Populations (8.6) ] . …（节选，完整文本见来源链接）
+
+## 检索提示
+
+- 需要原始标签全文：https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22acamprosate%22
+- 需要化学数据：https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/acamprosate/property/MolecularFormula/JSON
+- 相互作用与剂量务必以当地说明书与医师判断为准。
+

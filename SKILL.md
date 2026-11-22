@@ -1,13 +1,13 @@
 ---
 name: psych-triage-and-prep
-description: 精神与心理健康「有限责任」问诊辅助技能（v2.3）。8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件可视化报告；内置红黄绿熔断、T0–T3 建议分级（在明示免责与停止条件的前提下允许给出可执行的医嘱级建议）、药化/现象学知识库、症状→机制→药物索引、PHQ-9/GAD-7/MDQ 量表锚点与未成年人/第三人称/孕哺/老年/肝肾特殊路径。当用户描述情绪/躯体/认知症状希望梳理病史、询问精神科药物机制与副作用、准备初诊或复诊、或需要把主观体验转译成临床术语时使用。
-version: 2.3.0
+description: 精神与心理健康「有限责任」问诊辅助技能（v2.4）。8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件可视化报告；内置红黄绿熔断、T0–T3 建议分级（在明示免责与停止条件的前提下允许给出可执行的医嘱级建议）、药化/现象学知识库、症状→机制→药物索引、PHQ-9/GAD-7/MDQ 量表锚点与未成年人/第三人称/孕哺/老年/肝肾特殊路径。当用户描述情绪/躯体/认知症状希望梳理病史、询问精神科药物机制与副作用、准备初诊或复诊、或需要把主观体验转译成临床术语时使用。
+version: 2.4.0
 repository: https://github.com/11451579799/psych-triage-and-prep
 license: MIT
 tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, visualization]
 ---
 
-# psych-triage-and-prep (v2.3.0)
+# psych-triage-and-prep (v2.4.0)
 
 把「说不清楚的难受」整理成医生 30 秒能读完的结构化病历，把「我听不懂的药理」翻译成患者能复述的比喻，最后给一份可交互、可打印、可离线保存的单文件报告。
 
@@ -92,8 +92,10 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 | references/acute-relief-playbook.md | 患者视角短期缓解：0–24h / 24–72h / 1–2 周三档，8 个症状簇的可执行动作、停止条件、升级信号、30 秒门诊卡 | **用户说「现在就难受」或 Round 7/8** |
 | scripts/lint_report.py | 报告 HTML 合规自检（外链 / alert / 无障碍 / 打印 / 配色 / 体积），ERROR 非零退出 | **交付前必跑** |
 | references/openfda-drugs/药名.md | 单药标签精编 + PubChem 标识 + 数值来源 | 需要说明书措辞时，只读 1–2 篇 |
-| references/kb-index.json | 68 药索引（slug/中英名/类别/文件/字节） | 不确定有没有分片时 |
+| references/kb-index.json | 111 药索引（slug/中英名/类别/文件/字节） | 不确定有没有分片时 |
 | references/clinical-semiology-dsm-icd.md / triage-and-toxidromes.md / patient-friendly-analogies.md | v1 保留：术语对照 / 分诊 / 比喻 | 按需 |
+
+**分片覆盖（111 药）**：SSRI/SNRI/其他抗抑郁、TCA/MAOI、抗精神病（含长效针剂）、心境稳定剂、BZD 与 Z 药/食欲素拮抗剂、ADHD 与促觉醒、成瘾替代（纳曲酮/阿坎酸/双硫仑/丁丙诺啡/美沙酮/伐尼克兰/尼古丁）、EPS 对症（苯海索类/丙环定/金刚烷胺）、止吐与抗组胺（甲氧氯普胺/昂丹司琼/异丙嗪/赛庚啶）、OTC（褪黑素/布洛芬/萘普生/奥美拉唑等）。7 个暂无美国标签的分片（舒必利、珠氯噻醇、氟哌噻吨、马普替林、吗氯贝胺、丙环定、阿戈美拉汀）只有 PubChem 标识与人工要点，查说明书需另找 NMPA/EMA。
 
 **检索顺序**：症状原话 → symptom-index（找机制假设与候选药）→ KB 对应章节（核机制）→ openfda 分片（核说明书措辞）→ 宿主联网（核最新/地区差异）。
 

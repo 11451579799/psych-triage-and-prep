@@ -1,0 +1,84 @@
+# naltrexone · 纳曲酮
+
+> 数据来源：OpenFDA Drug Labeling API + PubChem PUG-REST ｜ 拉取时间：2026-11-22T16:38:06+08:00
+> 用途：症状-药物机制核对、副作用溯源、门诊沟通准备。**不得**作为自行调量、停药或超剂量使用的依据。
+
+## 速览
+
+| 项 | 值 |
+|---|---|
+| 通用名 (INN) | naltrexone |
+| 中文名 | 纳曲酮 |
+| 类别 / 机制 | μ 阿片受体拮抗 |
+| 关键靶点 | μ 拮抗（高亲和） |
+| 消除半衰期 | 4 h（6β-纳曲醇 13 h） |
+| CYP450 / 代谢 | 2D6 生成活性代谢物 |
+
+## 数值来源与口径
+
+| 项目 | 来源 | 口径 |
+|---|---|---|
+| 适应症 / 剂量 / 禁忌 / 警告 / 不良反应 / 相互作用 | 本文下方 FDA 标签原样节选 | 美国标签；地区剂型与获批适应症可能不同，需查 NMPA |
+| 消除半衰期 / CYP 通路 | FDA 标签 Clinical Pharmacology、Drug Interactions 章节 | 群体均值，个体差异可达数倍 |
+| Ki（受体亲和力） | 文献近似值（PDSP / BindingDB 类数据集整理） | 仅作量级参考，非本药实测值 |
+| 化学标识 | PubChem PUG-REST | 查询时点快照 |
+
+> 任何数值都不构成剂量依据；调量必须由处方医师决定。
+
+## 精选临床要点（人工精编，非说明书原文）
+
+酒精使用障碍防复吸、阿片依赖维持期阻断；用前须确认体内无阿片，否则诱发戒断。
+
+## 化学标识（PubChem）
+
+| 属性 | 值 |
+|---|---|
+| PubChem CID | 5360515 |
+| 分子式 | C20H23NO4 |
+| 分子量 | 341.4 |
+| IUPAC 名 | (4R,4aS,7aR,12bS)-3-(cyclopropylmethyl)-4a,9-dihydroxy-2,4,5,6,7a,13-hexahydro-1H-4,12-methanobenzofuro[3,2-e]isoquinolin-7-one |
+| XLogP | 1.9 |
+| 氢键供体 | 2 |
+| 氢键受体 | 5 |
+| 拓扑极性表面积 | 70 |
+
+SMILES 可用于结构核对与教学演示；不用于任何合成或改造目的。
+
+## 适应症与用途
+
+INDICATIONS AND USAGE Naltrexone hydrochloride tablets are indicated in the treatment of alcohol dependence and for the blockade of the effects of exogenously administered opioids. Naltrexone hydrochloride has not been shown to provide any therapeutic benefit except as part of an appropriate plan of management for the addictions.
+
+## 剂量与给药
+
+DOSAGE AND ADMINISTRATION To reduce the risk of precipitated withdrawal in patients dependent on opioids, or exacerbation of a preexisting subclinical withdrawal syndrome, opioid-dependent patients, including those being treated for alcohol dependence, should be opioid-free (including tramadol) before starting naltrexone hydrochloride treatment. An opioid-free interval of a minimum of 7 to 10 days is recommended for patients previously dependent on short-acting opioids. Patient Access to an Opioid Overdose Reversal Agent for the Emergency Treatment of Opioid Overdose When initiating and renewing treatment with naltrexone hydrochloride tablets, inform patients and caregivers about opioid overdose reversal agents (e.g., naloxone, nalmefene) and discuss the importance of having access to an opioid overdose reversal agent. Because patients being treated for opioid use disorder have the potential for relapse, putting them at risk for opioid overdose after naltrexone hydrochloride tablets treatment is discontinued, or after a dose of naltrexone hydrochloride tablets is missed, strongly consider recommending or prescribing an overdose reversal agent naloxone for the emergency treatment of opioid overdose [ see Warnings ]. Discuss the options for obtaining an opioid overdose reversal agent (e.g., prescription, over-the-counter (some products), or as part of a community-based program) [ see Warnings ]. There are important differences among the opioid overdose reversal agents, such as route of administration, product strength, approved patient age range, and pharmacokinetics. Be familiar with these differences, as outlined in the approved labeling for those products, prior to recommending or prescribing such an agent. Switching from Buprenorphine, Buprenorphine/Naloxone, or Methadone There are no systematically collected data that specifically address the switch from buprenorphine or methadone to naltrexone hydrochloride; however, review of postmarketing case reports have indicated that some patients may experience severe manifestations of precipitated withdrawal when being switched from opioid agonist therapy to opioid antagonist therapy (see WARNINGS ). Patients transitioning from buprenorphine or methadone may be vulnerable to precipitation of withdrawal symptoms for as long as 2 weeks. Healthcare providers should be prepared to manage withdrawal symptomatically with non-opioid medications. Treatment of Alcoholism A dose of 50 mg once daily is recommended for most patients. The placebo-controlled studies that demonstrated the efficacy of naltrexone hydrochloride as an adjunctive treatment of alcoholism used a dose regimen of naltrexone hydrochloride 50 mg once daily for up to 12 weeks. Other dose regimens or durations of therapy were not evaluated in these trials. Naltrexone hydrochloride should be considered as only one of many factors determining the success of treatment of alcoholism. Factors associated with a good outcome in the clinical trials with naltrexone hydrochloride were the type, intensity, and duration of treatment; appropriate management of comorbid conditions; use of community-based support groups; and good medication compliance. …（节选，完整文本见来源链接）
+
+## 禁忌
+
+CONTRAINDICATIONS Naltrexone hydrochloride is contraindicated in: Patients receiving opioid analgesics. Patients currently dependent on opioids, including those currently maintained on opiate agonists (e.g., methadone) or partial agonists (e.g., buprenorphine). Patients in acute opioid withdrawal (see WARNINGS ). Any individual who has failed the naloxone challenge test or who has a positive urine screen for opioids. Any individual with a history of sensitivity to naltrexone hydrochloride or any other components of this product. It is not known if there is any cross-sensitivity with naloxone or the phenanthrene containing opioids.
+
+## 不良反应
+
+ADVERSE REACTIONS During two randomized, double-blind placebo-controlled 12 week trials to evaluate the efficacy of naltrexone hydrochloride as an adjunctive treatment of alcohol dependence, most patients tolerated naltrexone hydrochloride well. In these studies, a total of 93 patients received naltrexone hydrochloride at a dose of 50 mg once daily. Five of these patients discontinued naltrexone hydrochloride because of nausea. No serious adverse events were reported during these two trials. While extensive clinical studies evaluating the use of naltrexone hydrochloride in detoxified, formerly opioid-dependent individuals failed to identify any single, serious untoward risk of naltrexone hydrochloride use, placebo-controlled studies employing up to fivefold higher doses of naltrexone hydrochloride (up to 300 mg per day) than that recommended for use in opiate receptor blockade have shown that naltrexone hydrochloride causes hepatocellular injury in a substantial proportion of patients exposed at higher doses (see WARNINGS and PRECAUTIONS, Laboratory Tests ). Aside from this finding, and the risk of precipitated opioid withdrawal, available evidence does not incriminate naltrexone hydrochloride, used at any dose, as a cause of any other serious adverse reaction for the patient who is “opioid-free.” It is critical to recognize that naltrexone hydrochloride can precipitate or exacerbate abstinence signs and symptoms in any individual who is not completely free of exogenous opioids. Patients with addictive disorders, especially opioid addiction, are at risk for multiple numerous adverse events and abnormal laboratory findings, including liver function abnormalities . Data from both controlled and observational studies suggest that these abnormalities, other than the dose-related hepatotoxicity described above, are not related to the use of naltrexone hydrochloride. Among opioid-free individuals, naltrexone hydrochloride administration at the recommended dose has not been associated with a predictable profile of serious adverse or untoward events. However, as mentioned above, among individuals using opioids, naltrexone hydrochloride may cause serious withdrawal reactions (see CONTRAINDICATIONS , WARNINGS , DOSAGE AND ADMINISTRATION ). Reported Adverse Events Naltrexone hydrochloride has not been shown to cause significant increases in complaints in placebo-controlled trials in patients known to be free of opioids for more than 7 to 10 days. Studies in alcoholic populations and in volunteers in clinical pharmacology studies have suggested that a small fraction of patients may experience an opioid withdrawal-like symptom complex consisting of tearfulness, mild nausea, abdominal cramps, restlessness, bone or joint pain, myalgia, and nasal symptoms. This may represent the unmasking of occult opioid use, or it may represent symptoms attributable to naltrexone. A number of alternative dosing patterns have been recommended to try to reduce the frequency of these complaints. Alcoholism In an open label safety study with approximately 570 individuals with alcoholism receiving naltrexone hydrochloride, the following new-onset adverse reactions occurred in 2% or more of the patients: nausea (10%), headache (7%), dizziness (4%), nervousness (4%), fatigue (4%), insomnia (3%), vomiting (3%), anxiety (2%) and somnolence (2%). Depression, suicidal ideation, and suicidal attempts have been reported in all groups when comparing naltrexone, placebo, or controls undergoing treatment for alcoholism. RATE RANGES OF NEW ONSET EVENTS Naltrexone Placebo Depression 0 to 15% 0 to 17% Suicide Attempt/Ideation 0 to 1% 0 to 3% Although no causal relationship with naltrexone hydrochloride is suspected, physicians should be aware that treatment with naltrexone hydrochloride does not reduce the risk of suicide in these patients (see PRECAUTIONS ). …（节选，完整文本见来源链接）
+
+## 药物相互作用
+
+Drug Interactions Studies to evaluate possible interactions between naltrexone hydrochloride and drugs other than opiates have not been performed. Consequently, caution is advised if the concomitant administration of naltrexone hydrochloride and other drugs is required. The safety and efficacy of concomitant use of naltrexone hydrochloride and disulfiram is unknown, and the concomitant use of two potentially hepatotoxic medications is not ordinarily recommended unless the probable benefits outweigh the known risks. Lethargy and somnolence have been reported following doses of naltrexone hydrochloride and thioridazine. Patients taking naltrexone hydrochloride may not benefit from opioid containing medicines, such as cough and cold preparations, antidiarrheal preparations, and opioid analgesics. In an emergency situation when opioid analgesia must be administered to a patient receiving naltrexone hydrochloride, the amount of opioid required may be greater than usual, and the resulting respiratory depression may be deeper and more prolonged (see PRECAUTIONS ).
+
+## 过量表现（仅用于识别中毒征象，不构成处理指导）
+
+OVERDOSAGE There is limited clinical experience with naltrexone hydrochloride overdosage in humans. In one study, subjects who received 800 mg daily naltrexone hydrochloride for up to one week showed no evidence of toxicity. In the mouse, rat and guinea pig, the oral LD50s were 1,100 to 1,550 mg/kg; 1,450 mg/kg; and 1,490 mg/kg; respectively. High doses of naltrexone hydrochloride (generally ≥1,000 mg/kg) produced salivation, depression/reduced activity, tremors, and convulsions. Mortalities in animals due to high-dose naltrexone hydrochloride administration usually were due to clonic-tonic convulsions and/or respiratory failure. Treatment of Overdosage In view of the lack of actual experience in the treatment of naltrexone hydrochloride overdose, patients should be treated symptomatically in a closely supervised environment. Physicians should contact a poison control center for the most up-to-date information.
+
+## 化学描述
+
+DESCRIPTION Naltrexone hydrochloride, an opioid antagonist, is a synthetic congener of oxymorphone with no opioid agonist properties. Naltrexone hydrochloride differs in structure from oxymorphone in that the methyl group on the nitrogen atom is replaced by a cyclopropylmethyl group. Naltrexone hydrochloride is also related to the potent opioid antagonist, naloxone, or n-allylnoroxymorphone. The chemical name for naltrexone hydrochloride is Morphinan-6-one, 17-(cyclopropylmethyl)-4,5-epoxy-3,14-dihydroxy-, hydrochloride, (5⛙)-. The structural formula is as follows: Naltrexone hydrochloride is a white, crystalline compound. The hydrochloride salt is soluble in water to the extent of about 100 mg/mL. Naltrexone hydrochloride is available in scored film-coated tablets containing 50 mg of naltrexone hydrochloride, USP. Naltrexone hydrochloride tablets, USP also contain: colloidal silicon dioxide, crospovidone, hypromellose, iron oxide red, iron oxide yellow, lactose monohydrate, magnesium stearate, microcrystalline cellulose, polyethylene glycol, polysorbate 80 and titanium dioxide. naltrexone-structure
+
+## 临床药理学（含 PK/PD）
+
+CLINICAL PHARMACOLOGY Pharmacodynamic Actions Naltrexone hydrochloride is a pure opioid antagonist. It markedly attenuates or completely blocks, reversibly, the subjective effects of opioids. When coadministered with morphine, on a chronic basis, naltrexone hydrochloride blocks the physical dependence to morphine, heroin and other opioids. Naltrexone hydrochloride has few, if any, intrinsic actions besides its opioid blocking properties. However, it does produce some pupillary constriction, by an unknown mechanism. The administration of naltrexone hydrochloride is not associated with the development of tolerance or dependence. In subjects physically dependent on opioids, naltrexone hydrochloride will precipitate withdrawal symptomatology. Clinical studies indicate that 50 mg of naltrexone hydrochloride will block the pharmacologic effects of 25 mg of intravenously administered heroin for periods as long as 24 hours. Other data suggest that doubling the dose of naltrexone hydrochloride provides blockade for 48 hours, and tripling the dose of naltrexone hydrochloride provides blockade for about 72 hours. Naltrexone hydrochloride blocks the effects of opioids by competitive binding (i.e., analogous to competitive inhibition of enzymes) at opioid receptors. This makes the blockade produced potentially surmountable, but overcoming full naltrexone blockade by administration of very high doses of opiates has resulted in excessive symptoms of histamine release in experimental subjects. The mechanism of action of naltrexone hydrochloride in alcoholism is not understood; however, involvement of the endogenous opioid system is suggested by preclinical data. Naltrexone hydrochloride, an opioid receptor antagonist, competitively binds to such receptors and may block the effects of endogenous opioids. Opioid antagonists have been shown to reduce alcohol consumption by animals, and naltrexone hydrochloride has been shown to reduce alcohol consumption in clinical studies. Naltrexone hydrochloride is not aversive therapy and does not cause a disulfiram-like reaction either as a result of opiate use or ethanol ingestion. Pharmacokinetics Naltrexone hydrochloride is a pure opioid receptor antagonist. Although well absorbed orally, naltrexone is subject to significant first pass metabolism with oral bioavailability estimates ranging from 5 to 40%. The activity of naltrexone is believed to be due to both parent and the 6-ß-naltrexol metabolite. Both parent drug and metabolites are excreted primarily by the kidney (53% to 79% of the dose), however, urinary excretion of unchanged naltrexone accounts for less than 2% of an oral dose and fecal excretion is a minor elimination pathway. The mean elimination half-life (T-1/2) values for naltrexone and 6-ß-naltrexol are 4 hours and 13 hours, respectively. Naltrexone and 6-ß-naltrexol are dose proportional in terms of AUC and C max over the range of 50 to 200 mg and do not accumulate after 100 mg daily doses. Absorption Following oral administration, naltrexone undergoes rapid and nearly complete absorption with approximately 96% of the dose absorbed from the gastrointestinal tract. Peak plasma levels of both naltrexone and 6-ß-naltrexol occur within one hour of dosing. Distribution The volume of distribution for naltrexone following intravenous administration is estimated to be 1350 liters. In vitro tests with human plasma show naltrexone to be 21% bound to plasma proteins over the therapeutic dose range. Metabolism The systemic clearance (after intravenous administration) of naltrexone is ~ 3.5 L/min, which exceeds liver blood flow (~ 1.2 L/min). This suggests both that naltrexone is a highly extracted drug (>98% metabolized) and that extrahepatic sites of drug metabolism exist. The major metabolite of naltrexone is 6-ß-naltrexol. Two other minor metabolites are 2-hydroxy-3-methoxy-6-ß-naltrexol and 2-hydroxy-3-methyl-naltrexone. Naltrexone and its metabolites are also conjugated to form additional metabolic products. Elimination The renal clearance for naltrexone ranges from 30 to 127 mL/min and suggests that renal elimination is primarily by glomerular filtration. …（节选，完整文本见来源链接）
+
+## 检索提示
+
+- 需要原始标签全文：https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22naltrexone%22
+- 需要化学数据：https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/naltrexone/property/MolecularFormula/JSON
+- 相互作用与剂量务必以当地说明书与医师判断为准。
+

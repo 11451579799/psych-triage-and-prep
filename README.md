@@ -1,4 +1,4 @@
-# psych-triage-and-prep（v2.3）
+# psych-triage-and-prep（v2.4）
 
 > 精神与心理健康「有限责任」问诊辅助技能：**8 轮低认知负荷结构化问诊 → 第 8 轮直出单文件交互式报告**。
 > 跨 Agent 框架可用（Harness-agnostic）：Claude Code / Codex / Cursor / DeepSeek Harness 等能读取仓库内 Markdown 技能的宿主均可加载。
@@ -32,7 +32,7 @@
       symptom-index.json                      # 症状→通道→机制→候选方向→红线（38 条）
       neuropharmacology-and-phenomenology-kb.md  # 药化、PK/PD、CYP450、现象学词典
       frontend-ui-architecture.md             # 真人设计对标 + Round 8 UI 契约
-      openfda-drugs/*.md                      # 68 种药物分片（脚本生成，含数值来源）
+      openfda-drugs/*.md                      # 111 种药物分片（脚本生成，含数值来源）
       kb-index.json                           # 药物索引
       clinical-semiology-dsm-icd.md           # v1 保留
       triage-and-toxidromes.md                # v1 保留
@@ -83,7 +83,7 @@
 
 ## 知识库构建（> 1.5 MB）
 
-    python scripts/build_1mb_kb.py            # 全量 68 种药物
+    python scripts/build_1mb_kb.py            # 全量 111 种药物
     python scripts/build_1mb_kb.py --only duloxetine,pregabalin --force
     python scripts/build_1mb_kb.py --check    # 只检查体积
 
