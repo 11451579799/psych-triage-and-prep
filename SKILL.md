@@ -88,6 +88,7 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
 | references/symptom-index.json | 症状 → 机制 → 候选药物 → 该问医生什么（按通道分类） | Round 2 术语转译与假设生成 |
 | references/scales.md | PHQ-9 / GAD-7 / MDQ 条目、计分、使用边界 | Round 1/3 需要量化时 |
 | references/advice-tiers.md | T0–T4 分级、新药假设写法、免责模板、红线、拒绝就医场景 | **要给具体建议前必读** |
+| references/design-references.md | 人工设计参考白名单（带链接）+ 生成报告后的可执行走查清单 | **第 8 轮出报告前必读** |
 | references/frontend-ui-architecture.md | 6 个真人设计项目对标、4 项技术栈、无障碍、tokens、HTML 契约 | **仅 Round 8** |
 | references/openfda-drugs/药名.md | 单药标签精编 + PubChem 标识 + 数值来源 | 需要说明书措辞时，只读 1–2 篇 |
 | references/kb-index.json | 68 药索引（slug/中英名/类别/文件/字节） | 不确定有没有分片时 |
@@ -169,6 +170,7 @@ tags: [psychiatry, psychopharmacology, triage, harm-reduction, clinical-intake, 
     │   ├── state-schema.md               # 状态字段 + JSON Schema
     │   ├── scales.md                     # PHQ-9 / GAD-7 / MDQ
     │   ├── advice-tiers.md               # T0–T4 建议分级、新药假设与免责执行
+    │   ├── design-references.md          # 人工设计白名单 + 走查清单（患者视角）
     │   ├── symptom-index.json            # 症状→机制→药物
     │   ├── neuropharmacology-and-phenomenology-kb.md
     │   ├── frontend-ui-architecture.md

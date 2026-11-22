@@ -28,6 +28,7 @@
       state-schema.md                         # PatientIntakeState + JSON Schema + 校验纪律
       scales.md                               # PHQ-9 / GAD-7 / MDQ 条目、计分、边界
       advice-tiers.md                         # T0–T4 分级、新药假设写法、免责、红线、拒绝就医场景
+      design-references.md                    # 人工设计参考白名单（带链接）+ 患者视角走查清单
       symptom-index.json                      # 症状→通道→机制→候选方向→红线（38 条）
       neuropharmacology-and-phenomenology-kb.md  # 药化、PK/PD、CYP450、现象学词典
       frontend-ui-architecture.md             # 真人设计对标 + Round 8 UI 契约
