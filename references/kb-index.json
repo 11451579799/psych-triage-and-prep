@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T16:38:06+08:00",
+  "generated_at": "2026-11-23T11:29:12+00:00",
   "count": 111,
   "total_bytes": 2556236,
   "total_mb": 2.44,
@@ -17,7 +17,7 @@
       "half_life": "20–33 h（给药 TID）",
       "file": "openfda-drugs/acamprosate.md",
       "bytes": 20363,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -32,7 +32,7 @@
       "half_life": "1–2 h",
       "file": "openfda-drugs/agomelatine.md",
       "bytes": 2288,
-      "status": "pubchem-only",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -47,7 +47,7 @@
       "half_life": "6–12 h",
       "file": "openfda-drugs/alprazolam.md",
       "bytes": 31068,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -62,7 +62,7 @@
       "half_life": "≈15 h",
       "file": "openfda-drugs/amantadine.md",
       "bytes": 18500,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -77,7 +77,7 @@
       "half_life": "12 h",
       "file": "openfda-drugs/amisulpride.md",
       "bytes": 19376,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -92,7 +92,7 @@
       "half_life": "10–28 h",
       "file": "openfda-drugs/amitriptyline.md",
       "bytes": 18606,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -107,7 +107,7 @@
       "half_life": "8–30 h",
       "file": "openfda-drugs/amoxapine.md",
       "bytes": 16218,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -122,7 +122,7 @@
       "half_life": "10–13 h",
       "file": "openfda-drugs/amphetamine.md",
       "bytes": 33896,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -137,7 +137,7 @@
       "half_life": "75 h（脱氢 94 h）",
       "file": "openfda-drugs/aripiprazole.md",
       "bytes": 29784,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -152,7 +152,7 @@
       "half_life": "24 h",
       "file": "openfda-drugs/asenapine.md",
       "bytes": 30190,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -167,7 +167,7 @@
       "half_life": "5 h（活性代谢物 24 h）",
       "file": "openfda-drugs/atomoxetine.md",
       "bytes": 34153,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -182,7 +182,7 @@
       "half_life": "5–15 h",
       "file": "openfda-drugs/benztropine.md",
       "bytes": 10106,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -197,7 +197,7 @@
       "half_life": "91 h",
       "file": "openfda-drugs/brexpiprazole.md",
       "bytes": 31305,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -212,7 +212,7 @@
       "half_life": "舌下 24–42 h",
       "file": "openfda-drugs/buprenorphine.md",
       "bytes": 29599,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -227,7 +227,7 @@
       "half_life": "21 h（羟安非他酮 20 h）",
       "file": "openfda-drugs/bupropion.md",
       "bytes": 32991,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -242,7 +242,7 @@
       "half_life": "2–3 h",
       "file": "openfda-drugs/buspirone.md",
       "bytes": 23194,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -257,7 +257,7 @@
       "half_life": "3–7 h（个体差异大）",
       "file": "openfda-drugs/caffeine.md",
       "bytes": 3683,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -272,7 +272,7 @@
       "half_life": "12–17 h（自身诱导后 8–12 h）",
       "file": "openfda-drugs/carbamazepine.md",
       "bytes": 28966,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -287,7 +287,7 @@
       "half_life": "2–4 d（代谢物数周）",
       "file": "openfda-drugs/cariprazine.md",
       "bytes": 28071,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -302,7 +302,7 @@
       "half_life": "24–48 h（活性代谢物更长）",
       "file": "openfda-drugs/chlordiazepoxide.md",
       "bytes": 16547,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -317,7 +317,7 @@
       "half_life": "≈30 h",
       "file": "openfda-drugs/chlorpromazine.md",
       "bytes": 14839,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -332,7 +332,7 @@
       "half_life": "35 h",
       "file": "openfda-drugs/citalopram.md",
       "bytes": 28729,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -347,7 +347,7 @@
       "half_life": "18–36 h（去甲代谢物 71–82 h）",
       "file": "openfda-drugs/clobazam.md",
       "bytes": 28924,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -362,7 +362,7 @@
       "half_life": "20–32 h",
       "file": "openfda-drugs/clomipramine.md",
       "bytes": 22958,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -377,7 +377,7 @@
       "half_life": "20–40 h",
       "file": "openfda-drugs/clonazepam.md",
       "bytes": 23615,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -392,7 +392,7 @@
       "half_life": "6–20 h（个体差异大）",
       "file": "openfda-drugs/clonidine.md",
       "bytes": 26016,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -407,7 +407,7 @@
       "half_life": "12 h",
       "file": "openfda-drugs/clozapine.md",
       "bytes": 32844,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -422,7 +422,7 @@
       "half_life": "≈8 h",
       "file": "openfda-drugs/cyproheptadine.md",
       "bytes": 9166,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -437,7 +437,7 @@
       "half_life": "≈8 h",
       "file": "openfda-drugs/daridorexant.md",
       "bytes": 26035,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -452,7 +452,7 @@
       "half_life": "12–54 h",
       "file": "openfda-drugs/desipramine.md",
       "bytes": 20280,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -467,7 +467,7 @@
       "half_life": "11 h",
       "file": "openfda-drugs/desvenlafaxine.md",
       "bytes": 32264,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -482,7 +482,7 @@
       "half_life": "2–3 h（缓释 8–12 h）",
       "file": "openfda-drugs/dexmethylphenidate.md",
       "bytes": 31197,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -497,7 +497,7 @@
       "half_life": "2–4 h",
       "file": "openfda-drugs/dextromethorphan.md",
       "bytes": 5413,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -512,7 +512,7 @@
       "half_life": "20–100 h（活性代谢物）",
       "file": "openfda-drugs/diazepam.md",
       "bytes": 16653,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -527,7 +527,7 @@
       "half_life": "4–8 h",
       "file": "openfda-drugs/diphenhydramine.md",
       "bytes": 7520,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -542,7 +542,7 @@
       "half_life": "60–120 h（效应更久）",
       "file": "openfda-drugs/disulfiram.md",
       "bytes": 11857,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -557,7 +557,7 @@
       "half_life": "9–16 h",
       "file": "openfda-drugs/divalproex-sodium.md",
       "bytes": 34195,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -572,7 +572,7 @@
       "half_life": "15–30 h",
       "file": "openfda-drugs/doxepin.md",
       "bytes": 30901,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -587,7 +587,7 @@
       "half_life": "12 h",
       "file": "openfda-drugs/duloxetine.md",
       "bytes": 32076,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -602,7 +602,7 @@
       "half_life": "27–32 h",
       "file": "openfda-drugs/escitalopram.md",
       "bytes": 31241,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -617,7 +617,7 @@
       "half_life": "7–12 h",
       "file": "openfda-drugs/esketamine.md",
       "bytes": 28423,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -632,7 +632,7 @@
       "half_life": "6 h",
       "file": "openfda-drugs/eszopiclone.md",
       "bytes": 28019,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -647,7 +647,7 @@
       "half_life": "母药 1–4 d；去甲氟西汀 7–15 d",
       "file": "openfda-drugs/fluoxetine.md",
       "bytes": 33449,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -662,7 +662,7 @@
       "half_life": "≈35 h；癸酸酯 17 d",
       "file": "openfda-drugs/flupentixol.md",
       "bytes": 2363,
-      "status": "pubchem-only",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -677,7 +677,7 @@
       "half_life": "33 h；癸酸酯长效 1–3 周",
       "file": "openfda-drugs/fluphenazine.md",
       "bytes": 13569,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -692,7 +692,7 @@
       "half_life": "15 h",
       "file": "openfda-drugs/fluvoxamine.md",
       "bytes": 34363,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -707,7 +707,7 @@
       "half_life": "5–7 h",
       "file": "openfda-drugs/gabapentin.md",
       "bytes": 28136,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -722,7 +722,7 @@
       "half_life": "缓释 14–18 h",
       "file": "openfda-drugs/guanfacine.md",
       "bytes": 25826,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -737,7 +737,7 @@
       "half_life": "18 h",
       "file": "openfda-drugs/haloperidol.md",
       "bytes": 15761,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -752,7 +752,7 @@
       "half_life": "≈20 h",
       "file": "openfda-drugs/hydroxyzine.md",
       "bytes": 9787,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -767,7 +767,7 @@
       "half_life": "2 h",
       "file": "openfda-drugs/ibuprofen.md",
       "bytes": 17893,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -782,7 +782,7 @@
       "half_life": "6–20 h",
       "file": "openfda-drugs/imipramine.md",
       "bytes": 16879,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -797,7 +797,7 @@
       "half_life": "25–33 h（合用丙戊酸 ≈70 h）",
       "file": "openfda-drugs/lamotrigine.md",
       "bytes": 33645,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -812,7 +812,7 @@
       "half_life": "17–19 h",
       "file": "openfda-drugs/lemborexant.md",
       "bytes": 26486,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -827,7 +827,7 @@
       "half_life": "≈16 h",
       "file": "openfda-drugs/levomilnacipran.md",
       "bytes": 29532,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -842,7 +842,7 @@
       "half_life": "10–12 h",
       "file": "openfda-drugs/lisdexamfetamine.md",
       "bytes": 33389,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -857,7 +857,7 @@
       "half_life": "18–24 h",
       "file": "openfda-drugs/lithium-carbonate.md",
       "bytes": 27538,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -872,7 +872,7 @@
       "half_life": "10–20 h",
       "file": "openfda-drugs/lorazepam.md",
       "bytes": 13560,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -887,7 +887,7 @@
       "half_life": "18 h",
       "file": "openfda-drugs/lurasidone.md",
       "bytes": 31468,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -902,7 +902,7 @@
       "half_life": "27–58 h",
       "file": "openfda-drugs/maprotiline.md",
       "bytes": 2288,
-      "status": "pubchem-only",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -917,7 +917,7 @@
       "half_life": "1–2 h（缓释 3–4 h）",
       "file": "openfda-drugs/melatonin.md",
       "bytes": 3672,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -932,7 +932,7 @@
       "half_life": "8–59 h（个体差异极大）",
       "file": "openfda-drugs/methadone.md",
       "bytes": 33711,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -947,7 +947,7 @@
       "half_life": "2–4 h（缓释 8–12 h）",
       "file": "openfda-drugs/methylphenidate.md",
       "bytes": 32469,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -962,7 +962,7 @@
       "half_life": "5–6 h",
       "file": "openfda-drugs/metoclopramide.md",
       "bytes": 29801,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -977,7 +977,7 @@
       "half_life": "1.5–3 h",
       "file": "openfda-drugs/midazolam.md",
       "bytes": 24028,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -992,7 +992,7 @@
       "half_life": "8 h",
       "file": "openfda-drugs/milnacipran.md",
       "bytes": 31701,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1007,7 +1007,7 @@
       "half_life": "20–40 h",
       "file": "openfda-drugs/mirtazapine.md",
       "bytes": 29451,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1022,7 +1022,7 @@
       "half_life": "1–4 h",
       "file": "openfda-drugs/moclobemide.md",
       "bytes": 2350,
-      "status": "pubchem-only",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1037,7 +1037,7 @@
       "half_life": "12–15 h",
       "file": "openfda-drugs/modafinil.md",
       "bytes": 28131,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1052,7 +1052,7 @@
       "half_life": "4 h（6β-纳曲醇 13 h）",
       "file": "openfda-drugs/naltrexone.md",
       "bytes": 17880,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1067,7 +1067,7 @@
       "half_life": "12–17 h",
       "file": "openfda-drugs/naproxen.md",
       "bytes": 33222,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1082,7 +1082,7 @@
       "half_life": "2 h（贴剂稳态）",
       "file": "openfda-drugs/nicotine.md",
       "bytes": 6860,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1097,7 +1097,7 @@
       "half_life": "18–44 h",
       "file": "openfda-drugs/nortriptyline.md",
       "bytes": 16939,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1112,7 +1112,7 @@
       "half_life": "33 h",
       "file": "openfda-drugs/olanzapine.md",
       "bytes": 33751,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1127,7 +1127,7 @@
       "half_life": "0.5–1 h（抑酸效应 24 h+）",
       "file": "openfda-drugs/omeprazole.md",
       "bytes": 32527,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1142,7 +1142,7 @@
       "half_life": "3–6 h",
       "file": "openfda-drugs/ondansetron.md",
       "bytes": 28801,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1157,7 +1157,7 @@
       "half_life": "5–15 h",
       "file": "openfda-drugs/oxazepam.md",
       "bytes": 12800,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1172,7 +1172,7 @@
       "half_life": "母药 2 h；MHD 9 h",
       "file": "openfda-drugs/oxcarbazepine.md",
       "bytes": 26708,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1187,7 +1187,7 @@
       "half_life": "23 h",
       "file": "openfda-drugs/paliperidone.md",
       "bytes": 32511,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1202,7 +1202,7 @@
       "half_life": "21 h（非线性）",
       "file": "openfda-drugs/paroxetine.md",
       "bytes": 29728,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1217,7 +1217,7 @@
       "half_life": "≈11 h（效应远超半衰期）",
       "file": "openfda-drugs/phenelzine.md",
       "bytes": 14272,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1232,7 +1232,7 @@
       "half_life": "≈55 h",
       "file": "openfda-drugs/pimozide.md",
       "bytes": 18642,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1247,7 +1247,7 @@
       "half_life": "10–12 h",
       "file": "openfda-drugs/pitolisant.md",
       "bytes": 22840,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1262,7 +1262,7 @@
       "half_life": "2–3 h",
       "file": "openfda-drugs/prazosin.md",
       "bytes": 16016,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1277,7 +1277,7 @@
       "half_life": "6.3 h",
       "file": "openfda-drugs/pregabalin.md",
       "bytes": 27077,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1292,7 +1292,7 @@
       "half_life": "≈12 h",
       "file": "openfda-drugs/procyclidine.md",
       "bytes": 2291,
-      "status": "pubchem-only",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1307,7 +1307,7 @@
       "half_life": "9–16 h",
       "file": "openfda-drugs/promethazine.md",
       "bytes": 14370,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1322,7 +1322,7 @@
       "half_life": "3–6 h（缓释更长）",
       "file": "openfda-drugs/propranolol.md",
       "bytes": 21245,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1337,7 +1337,7 @@
       "half_life": "6–7 h（去甲 12 h）",
       "file": "openfda-drugs/quetiapine.md",
       "bytes": 33427,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1352,7 +1352,7 @@
       "half_life": "1–2.6 h（活性代谢物 2–5 h）",
       "file": "openfda-drugs/ramelteon.md",
       "bytes": 25419,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1367,7 +1367,7 @@
       "half_life": "3 h（9-羟利培酮 24 h）",
       "file": "openfda-drugs/risperidone.md",
       "bytes": 32961,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1382,7 +1382,7 @@
       "half_life": "≈1.5 h（代谢物 4–8 h）",
       "file": "openfda-drugs/selegiline.md",
       "bytes": 15976,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1397,7 +1397,7 @@
       "half_life": "26 h（去甲舍曲林 62–104 h）",
       "file": "openfda-drugs/sertraline.md",
       "bytes": 24904,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1412,7 +1412,7 @@
       "half_life": "9.5–13.5 h",
       "file": "openfda-drugs/solriamfetol.md",
       "bytes": 23583,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1427,7 +1427,7 @@
       "half_life": "6–8 h",
       "file": "openfda-drugs/sulpiride.md",
       "bytes": 2336,
-      "status": "pubchem-only",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1442,7 +1442,7 @@
       "half_life": "≈12 h",
       "file": "openfda-drugs/suvorexant.md",
       "bytes": 26054,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1457,7 +1457,7 @@
       "half_life": "8–15 h",
       "file": "openfda-drugs/temazepam.md",
       "bytes": 16222,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1472,7 +1472,7 @@
       "half_life": "6 h",
       "file": "openfda-drugs/tramadol.md",
       "bytes": 33365,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1487,7 +1487,7 @@
       "half_life": "≈2.5 h",
       "file": "openfda-drugs/tranylcypromine.md",
       "bytes": 28334,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1502,7 +1502,7 @@
       "half_life": "5–9 h",
       "file": "openfda-drugs/trazodone.md",
       "bytes": 27622,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1517,7 +1517,7 @@
       "half_life": "2–4 h",
       "file": "openfda-drugs/triazolam.md",
       "bytes": 29781,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1532,7 +1532,7 @@
       "half_life": "≈24 h",
       "file": "openfda-drugs/trifluoperazine.md",
       "bytes": 13582,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1547,7 +1547,7 @@
       "half_life": "5–10 h",
       "file": "openfda-drugs/trihexyphenidyl.md",
       "bytes": 12018,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1562,7 +1562,7 @@
       "half_life": "24 h",
       "file": "openfda-drugs/varenicline.md",
       "bytes": 27864,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1577,7 +1577,7 @@
       "half_life": "母药 5 h；去甲文拉法辛 11 h",
       "file": "openfda-drugs/venlafaxine.md",
       "bytes": 34681,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1592,7 +1592,7 @@
       "half_life": "25 h",
       "file": "openfda-drugs/vilazodone.md",
       "bytes": 28756,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1607,7 +1607,7 @@
       "half_life": "66 h",
       "file": "openfda-drugs/vortioxetine.md",
       "bytes": 30513,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1622,7 +1622,7 @@
       "half_life": "1 h",
       "file": "openfda-drugs/zaleplon.md",
       "bytes": 19514,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1637,7 +1637,7 @@
       "half_life": "7 h",
       "file": "openfda-drugs/ziprasidone.md",
       "bytes": 33332,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1652,7 +1652,7 @@
       "half_life": "2–3 h",
       "file": "openfda-drugs/zolpidem.md",
       "bytes": 31890,
-      "status": "ok",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
@@ -1667,7 +1667,7 @@
       "half_life": "≈20 h；癸酸酯 19 d",
       "file": "openfda-drugs/zuclopenthixol.md",
       "bytes": 2307,
-      "status": "pubchem-only",
+      "status": "cached",
       "sources": [
         "openfda:label",
         "pubchem:property",
